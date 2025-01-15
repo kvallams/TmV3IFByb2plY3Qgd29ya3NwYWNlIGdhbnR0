@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ux_data_broker_rest">
+    <sys_ux_data_broker_rest action="INSERT_OR_UPDATE">
+        <api_name>x_main2_mars_spm_0.Project Task Chronology</api_name>
+        <api_url>/api/x_main2_mars_spm_0/spm_reporting/getProjectTaskChronology</api_url>
+        <batch_exclude>false</batch_exclude>
+        <description>Get Project Task Chronology Gantt Data</description>
+        <http_method>POST</http_method>
+        <mutates_server_data>false</mutates_server_data>
+        <name>Project Task Chronology</name>
+        <output_schema/>
+        <parameters/>
+        <private>false</private>
+        <props>[&#13;
+  {&#13;
+    "name": "query",&#13;
+    "label": "Query",&#13;
+    "description": "Query",&#13;
+    "readOnly": false,&#13;
+    "mandatory": false,&#13;
+    "fieldType": "Object",&#13;
+    "defaultValue": ""&#13;
+  },&#13;
+{&#13;
+    "name": "page_number",&#13;
+    "label": "Page Number",&#13;
+    "description": "Page number for potfolio records",&#13;
+    "readOnly": false,&#13;
+    "mandatory": false,&#13;
+    "fieldType": "string",&#13;
+    "defaultValue": ""&#13;
+  }&#13;
+]</props>
+        <request_body>{&#13;
+    "page":"{{page_number}}",&#13;
+    "query":{{query}}&#13;
+}</request_body>
+        <required_translations>[ {
+  "message" : "Page Number",
+  "comment" : ""
+}, {
+  "message" : "Page number for potfolio records",
+  "comment" : ""
+}, {
+  "message" : "Query",
+  "comment" : ""
+} ]</required_translations>
+        <schema_version>1.0.0</schema_version>
+        <sys_class_name>sys_ux_data_broker_rest</sys_class_name>
+        <sys_created_by>vallakal</sys_created_by>
+        <sys_created_on>2024-12-05 04:03:39</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>bb378e59975a12943e147a76f053af5e</sys_id>
+        <sys_mod_count>7</sys_mod_count>
+        <sys_name>Project Task Chronology</sys_name>
+        <sys_package display_value="MARS SPM Reporting" source="x_main2_mars_spm_0">e8724f28938d1e507ce7f81d6cba1022</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="MARS SPM Reporting">e8724f28938d1e507ce7f81d6cba1022</sys_scope>
+        <sys_update_name>sys_ux_data_broker_rest_bb378e59975a12943e147a76f053af5e</sys_update_name>
+        <sys_updated_by>vallakal</sys_updated_by>
+        <sys_updated_on>2025-01-13 17:44:31</sys_updated_on>
+    </sys_ux_data_broker_rest>
+</record_update>

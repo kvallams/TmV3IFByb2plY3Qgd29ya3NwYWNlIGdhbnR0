@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ux_data_broker_rest">
+    <sys_ux_data_broker_rest action="INSERT_OR_UPDATE">
+        <api_name>x_main2_mars_spm_0.Get SPM status report details</api_name>
+        <api_url>/api/x_main2_mars_spm_0/spm_reporting/getSPMReportingStatusData</api_url>
+        <batch_exclude>false</batch_exclude>
+        <description>Get Project Status details</description>
+        <http_method>POST</http_method>
+        <mutates_server_data>false</mutates_server_data>
+        <name>Get SPM status report details</name>
+        <output_schema/>
+        <parameters/>
+        <private>false</private>
+        <props>[&#13;
+  {&#13;
+    "name": "query",&#13;
+    "label": "Query",&#13;
+    "description": "Project Query",&#13;
+    "readOnly": false,&#13;
+    "mandatory": false,&#13;
+    "fieldType": "string",&#13;
+    "defaultValue": ""&#13;
+  },&#13;
+{&#13;
+    "name": "column_data",&#13;
+    "label": "Column Data",&#13;
+    "description": "Column data to be pulled from various tables",&#13;
+    "readOnly": false,&#13;
+    "mandatory": false,&#13;
+    "fieldType": "string",&#13;
+    "defaultValue": ""&#13;
+  }&#13;
+]</props>
+        <request_body>{&#13;
+    "column":{{column_data}},&#13;
+    "query":"{{query}}"&#13;
+}</request_body>
+        <required_translations>[ {
+  "message" : "Column Data",
+  "comment" : ""
+}, {
+  "message" : "Column data to be pulled from various tables",
+  "comment" : ""
+}, {
+  "message" : "Project Query",
+  "comment" : ""
+}, {
+  "message" : "Query",
+  "comment" : ""
+} ]</required_translations>
+        <schema_version>1.0.0</schema_version>
+        <sys_class_name>sys_ux_data_broker_rest</sys_class_name>
+        <sys_created_by>vallakal</sys_created_by>
+        <sys_created_on>2024-10-01 21:20:43</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>072547a093cd1e507ce7f81d6cba1057</sys_id>
+        <sys_mod_count>19</sys_mod_count>
+        <sys_name>Get SPM status report details</sys_name>
+        <sys_package display_value="MARS SPM Reporting" source="x_main2_mars_spm_0">e8724f28938d1e507ce7f81d6cba1022</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="MARS SPM Reporting">e8724f28938d1e507ce7f81d6cba1022</sys_scope>
+        <sys_update_name>sys_ux_data_broker_rest_072547a093cd1e507ce7f81d6cba1057</sys_update_name>
+        <sys_updated_by>vallakal</sys_updated_by>
+        <sys_updated_on>2024-10-02 01:31:07</sys_updated_on>
+    </sys_ux_data_broker_rest>
+</record_update>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ux_app_route">
+    <sys_ux_app_route action="INSERT_OR_UPDATE">
+        <app_config display_value="Project Task Chronology">e414ce91975a12943e147a76f053af8f</app_config>
+        <description/>
+        <extension_point/>
+        <fields/>
+        <icon/>
+        <name>Project Task Chronology</name>
+        <optional_parameters/>
+        <order>0</order>
+        <parent_macroponent display_value="Workspace App Shell">c276387cc331101080d6d3658940ddd2</parent_macroponent>
+        <parent_macroponent_composition_element_id/>
+        <route_type>project-task-chronology</route_type>
+        <screen_type display_value="Project Task Chronology">6db44215975a12943e147a76f053afc5</screen_type>
+        <sys_class_name>sys_ux_app_route</sys_class_name>
+        <sys_created_by>vallakal</sys_created_by>
+        <sys_created_on>2024-12-05 03:52:20</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>e1b44215975a12943e147a76f053afc9</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Project Task Chronology</sys_name>
+        <sys_package display_value="MARS SPM Reporting" source="x_main2_mars_spm_0">e8724f28938d1e507ce7f81d6cba1022</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="MARS SPM Reporting">e8724f28938d1e507ce7f81d6cba1022</sys_scope>
+        <sys_update_name>sys_ux_app_route_e1b44215975a12943e147a76f053afc9</sys_update_name>
+        <sys_updated_by>vallakal</sys_updated_by>
+        <sys_updated_on>2024-12-05 03:52:20</sys_updated_on>
+    </sys_ux_app_route>
+</record_update>

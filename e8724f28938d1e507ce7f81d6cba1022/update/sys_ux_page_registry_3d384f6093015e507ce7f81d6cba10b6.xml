@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ux_page_registry">
+    <sys_ux_page_registry action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <admin_panel>7d384f6093015e507ce7f81d6cba10b1</admin_panel>
+        <admin_panel_table>sys_ux_app_config</admin_panel_table>
+        <auth_routes/>
+        <page/>
+        <parent_app display_value="Unified Navigation app shell">c86a62e2c7022010099a308dc7c26022</parent_app>
+        <path>spm-reporting</path>
+        <root_macroponent display_value="Portal App Shell">b66bf1075b31101016fd7c1bf481c7a7</root_macroponent>
+        <sys_class_name>sys_ux_page_registry</sys_class_name>
+        <sys_created_by>vallakal</sys_created_by>
+        <sys_created_on>2024-10-01 21:33:20</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>3d384f6093015e507ce7f81d6cba10b6</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>SPM Reporting</sys_name>
+        <sys_package display_value="MARS SPM Reporting" source="x_main2_mars_spm_0">e8724f28938d1e507ce7f81d6cba1022</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="MARS SPM Reporting">e8724f28938d1e507ce7f81d6cba1022</sys_scope>
+        <sys_update_name>sys_ux_page_registry_3d384f6093015e507ce7f81d6cba10b6</sys_update_name>
+        <sys_updated_by>vallakal</sys_updated_by>
+        <sys_updated_on>2024-10-01 23:42:01</sys_updated_on>
+        <title>SPM Reporting</title>
+    </sys_ux_page_registry>
+</record_update>

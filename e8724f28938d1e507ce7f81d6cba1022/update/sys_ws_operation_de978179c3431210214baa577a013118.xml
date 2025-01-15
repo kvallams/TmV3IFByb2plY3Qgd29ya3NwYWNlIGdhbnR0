@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ws_operation">
+    <sys_ws_operation action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <consumes>application/json,application/xml,text/xml</consumes>
+        <consumes_customized>false</consumes_customized>
+        <default_operation_uri/>
+        <enforce_acl>cf9d01d3e73003009d6247e603f6a990</enforce_acl>
+        <http_method>POST</http_method>
+        <name>updateSPMReportingData</name>
+        <operation_script><![CDATA[(function process(/*RESTAPIRequest*/ request, /*RESTAPIResponse*/ response) {
+
+    // implement resource here
+	const {table,sys_id,templatefields} = request.body.data;
+	let msg = '';
+	let status = 'error';
+	var gr = new GlideRecordSecure(table);
+	gr.get(sys_id);
+	if(!gr.isValidRecord()){
+		msg = 'Invalid record: Could not locate the record in the system';
+	}
+	let fields = templatefields.split('^');
+	fields.forEach(function(f){
+		let f_arr = f.split('=');
+		gr.setValue(f_arr[0],f_arr[1]);
+	});
+	let id = gr.update();
+	if(!id){
+		msg = gs.getErrorMessages();
+	}else{
+		status = 'success';
+		msg = 'Success';
+	}
+	
+	response.setBody({response:{status:status,message:msg}});
+
+})(request, response);]]></operation_script>
+        <operation_uri>/api/x_main2_mars_spm_0/spm_reporting/updateSPMReportingData</operation_uri>
+        <produces>application/json,application/xml,text/xml</produces>
+        <produces_customized>false</produces_customized>
+        <relative_path>/updateSPMReportingData</relative_path>
+        <request_example/>
+        <requires_acl_authorization>true</requires_acl_authorization>
+        <requires_authentication>true</requires_authentication>
+        <requires_snc_internal_role>true</requires_snc_internal_role>
+        <short_description/>
+        <sys_class_name>sys_ws_operation</sys_class_name>
+        <sys_created_by>vallakal</sys_created_by>
+        <sys_created_on>2025-01-12 19:29:42</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>de978179c3431210214baa577a013118</sys_id>
+        <sys_mod_count>9</sys_mod_count>
+        <sys_name>updateSPMReportingData</sys_name>
+        <sys_package display_value="MARS SPM Reporting" source="x_main2_mars_spm_0">e8724f28938d1e507ce7f81d6cba1022</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="MARS SPM Reporting">e8724f28938d1e507ce7f81d6cba1022</sys_scope>
+        <sys_update_name>sys_ws_operation_de978179c3431210214baa577a013118</sys_update_name>
+        <sys_updated_by>vallakal</sys_updated_by>
+        <sys_updated_on>2025-01-12 22:23:42</sys_updated_on>
+        <web_service_definition display_value="SPM Reporting">1424076c938d1e507ce7f81d6cba1094</web_service_definition>
+        <web_service_version/>
+    </sys_ws_operation>
+    <sys_es_latest_script action="INSERT_OR_UPDATE">
+        <id>de978179c3431210214baa577a013118</id>
+        <sys_created_by>vallakal</sys_created_by>
+        <sys_created_on>2025-01-12 19:29:42</sys_created_on>
+        <sys_id>3ea789f1c3831210214baa577a0131dc</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>vallakal</sys_updated_by>
+        <sys_updated_on>2025-01-12 19:29:42</sys_updated_on>
+        <table>sys_ws_operation</table>
+        <use_es_latest>true</use_es_latest>
+    </sys_es_latest_script>
+</record_update>

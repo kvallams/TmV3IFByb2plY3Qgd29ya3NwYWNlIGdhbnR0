@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ws_operation">
+    <sys_ws_operation action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <consumes>application/json,application/xml,text/xml</consumes>
+        <consumes_customized>false</consumes_customized>
+        <default_operation_uri/>
+        <enforce_acl>cf9d01d3e73003009d6247e603f6a990</enforce_acl>
+        <http_method>POST</http_method>
+        <name>getSPMReportingStatusData</name>
+        <operation_script><![CDATA[(function process( /*RESTAPIRequest*/ request, /*RESTAPIResponse*/ response) {
+
+    // implement resource here
+    var logger = ["SPMReportingStatusData"];
+    var query_filter = request.body.data.query;
+    logger.push(query_filter);
+    var table_col_data = request.body.data.column;
+    var col_data_main_table = table_col_data.shift();
+    var data = [];
+    var col_meta_data = {};
+    var col_data = [];
+    for (let i of request.body.data.column) {
+        var gr = new GlideRecord(i.table);
+        for (let x of i.columns) {
+            var el = gr.getElement(x);
+            var eld = el.getED();
+            var size = '110px';
+            if (eld.getLength() > 1000)
+                size = '372px';
+            col_data.push('<style>.fixed_width {display:block;width:' + size + '}</style><span class="fixed_width">' + gr[x].getLabel() + '</span>');
+            col_meta_data[i.table + '_' + x] = size;
+        }
+    }
+    if (!query_filter){
+		 return response.setBody({
+            "column_data": col_data,
+            "grid_data": []
+        });
+	} 
+    gr = new GlideRecordSecure(col_data_main_table.table);
+    gr.addEncodedQuery(query_filter);
+    gr.addEncodedQuery('active=true');
+    //gr.addEncodedQuery('primary_portfolio.sys_idIN738f2a981bca609076709759bc4bcb9c');
+    gr.query();
+    logger.push(gr.getRowCount());
+    while (gr.next()) {
+        let temp = [];
+        for (let x of col_data_main_table.columns) {
+            if (x == 'status')
+                temp.push('<style>.fixed_width {display:block;width:110px;</style><span class="fixed_width"><span style="height: 15px;width: 15px;background-color:' + gr.getValue('status') + ';border-radius: 50%;display:block;"></span></span>');
+            else {
+                if (x == 'number') {
+                    temp.push('<style>.fixed_width {display:block;width:' + col_meta_data[col_data_main_table.table + '_' + x] + '}</style><span class="fixed_width"><a target="_blank" href="' + gs.getProperty('glide.servlet.uri') + gr.getLink(false) + '">' + gr.getDisplayValue(x) || "" + '</a></span>');
+                } else {
+                    var t = gr.getDisplayValue(x) == null ? 'No Access' : (gr.getDisplayValue(x) || '');
+                    temp.push('<style>.fixed_width {display:block;width:' + col_meta_data[col_data_main_table.table + '_' + x] + '}</style><span class="fixed_width">' + t + '</span>');
+                }
+
+            }
+
+        }
+        for (let y of table_col_data) {
+            var related_record = getReleatedRecordData(y, gr);
+            //gs.info(related_record);
+            for (let z of y.columns) {
+                let tempval = '';
+                if (related_record != 'not_found')
+                    tempval = related_record.getDisplayValue(z) || "";
+                temp.push('<style>.fixed_width {display:block;width:' + col_meta_data[y.table + '_' + z] + '}</style><span class="fixed_width">' + tempval + '</span>');
+            }
+
+        }
+
+        data.push(temp);
+    }
+
+    // gs.info(JSON.stringify(data));
+    response.setBody({
+        "column_data": col_data,
+        "grid_data": data
+    });
+
+    function getReleatedRecordData(table_col_data, gr) {
+        var status_gr = new GlideRecord(table_col_data.table);
+        status_gr.addEncodedQuery(table_col_data.dependendent_field + '=' + gr.sys_id);
+        status_gr.setLimit(1);
+        status_gr.orderByDesc('as_on');
+        status_gr.query();
+        if (status_gr.next())
+            return status_gr;
+        else
+            return "not_found";
+
+    }
+
+})(request, response);]]></operation_script>
+        <operation_uri>/api/x_main2_mars_spm_0/spm_reporting/getSPMReportingStatusData</operation_uri>
+        <produces>application/json,application/xml,text/xml</produces>
+        <produces_customized>false</produces_customized>
+        <relative_path>/getSPMReportingStatusData</relative_path>
+        <request_example/>
+        <requires_acl_authorization>true</requires_acl_authorization>
+        <requires_authentication>true</requires_authentication>
+        <requires_snc_internal_role>true</requires_snc_internal_role>
+        <short_description/>
+        <sys_class_name>sys_ws_operation</sys_class_name>
+        <sys_created_by>vallakal</sys_created_by>
+        <sys_created_on>2024-10-01 21:16:17</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>7844cf6c938d1e507ce7f81d6cba1031</sys_id>
+        <sys_mod_count>14</sys_mod_count>
+        <sys_name>getSPMReportingStatusData</sys_name>
+        <sys_package display_value="MARS SPM Reporting" source="x_main2_mars_spm_0">e8724f28938d1e507ce7f81d6cba1022</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="MARS SPM Reporting">e8724f28938d1e507ce7f81d6cba1022</sys_scope>
+        <sys_update_name>sys_ws_operation_7844cf6c938d1e507ce7f81d6cba1031</sys_update_name>
+        <sys_updated_by>vallakal</sys_updated_by>
+        <sys_updated_on>2024-10-02 01:57:36</sys_updated_on>
+        <web_service_definition display_value="SPM Reporting">1424076c938d1e507ce7f81d6cba1094</web_service_definition>
+        <web_service_version/>
+    </sys_ws_operation>
+</record_update>

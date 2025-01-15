@@ -1,0 +1,484 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ws_operation">
+    <sys_ws_operation action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <consumes>application/json,application/xml,text/xml</consumes>
+        <consumes_customized>false</consumes_customized>
+        <default_operation_uri/>
+        <enforce_acl>cf9d01d3e73003009d6247e603f6a990</enforce_acl>
+        <http_method>POST</http_method>
+        <name>getProjectTaskChronology</name>
+        <operation_script><![CDATA[(function process(request, response) {
+    const ITEMS_PER_PAGE = 10;
+    const portfolioIds = [];
+	let portfolioCount = 0;
+    // Column configuration data
+    const COLUMN_DATA = [{
+            "label": "Name",
+            "name": "text",
+            "type": "text",
+            "resize": true,
+            "hidden": false,
+            "hideable": false,
+            "cellContextMenu": false,
+            "isClickable": true,
+            "editable": true,
+            "internalColumnName": {
+                "pm_portfolio": "name",
+                "pm_program": "short_description",
+                "pm_project": "short_description",
+                "pm_project_task": "short_description"
+            }
+        },
+        {
+            "label": "Owner",
+            "name": "owner",
+            "editable": false,
+            "type": "reference",
+            "width": 130,
+            "hideable": true,
+            "hidden": false,
+            "cellContextMenu": false,
+            "referenceTable": "sys_user",
+            "dbColumnName": "assigned_to",
+            "internalColumnName": {
+                "pm_portfolio": "portfolio_manager",
+                "pm_program": "program_manager",
+                "pm_project": "project_manager",
+                "pm_project_task": "assigned_to"
+            }
+        },
+        {
+            "label": "Description",
+            "name": "description",
+            "type": "text",
+            "resize": true,
+            "hidden": true,
+            "hideable": true,
+            "cellContextMenu": false,
+            "editable": true,
+            "internalColumnName": {
+                "pm_portfolio": "description",
+                "pm_program": "description",
+                "pm_project": "description",
+                "pm_project_task": "description"
+            }
+        },
+        {
+            "label": "Assigned to",
+            "name": "assigned_to",
+            "type": "avatar",
+            "width": 250,
+            "hidden": false,
+            "hideable": true,
+            "cellContextMenu": false,
+            "editable": true,
+            "referenceTable": "sys_user",
+            "dbColumnName": "assigned_to",
+            "internalColumnName": {
+                "pm_project_task": "assigned_to"
+            }
+        },
+        {
+            "label": "Start Date",
+            "name": "startDate",
+            "type": "date",
+            "hidden": false,
+            "editable": true,
+            "hideTime": true,
+            "cellContextMenu": false,
+            "internalColumnName": {
+                "pm_program": "start_date",
+                "pm_project": "start_date",
+                "pm_project_task": "start_date"
+            }
+        },
+        {
+            "label": "End Date",
+            "name": "endDate",
+            "type": "date",
+            "hidden": false,
+            "editable": true,
+            "hideTime": true,
+            "cellContextMenu": false,
+            "internalColumnName": {
+                "pm_program": "end_date",
+                "pm_project": "end_date",
+                "pm_project_task": "end_date"
+            }
+        },
+        {
+            "label": "State",
+            "name": "state",
+            "editable": true,
+            "type": "string",
+            "width": 130,
+            "hideable": false,
+            "cellContextMenu": false,
+            "isChoice": true,
+            "choices": [{
+                    "value": "-5",
+                    "displayValue": "Pending"
+                },
+                {
+                    "value": "1",
+                    "displayValue": "Open"
+                },
+                {
+                    "value": "2",
+                    "displayValue": "Work in Progress"
+                },
+                {
+                    "value": "3",
+                    "displayValue": "Closed Complete"
+                },
+                {
+                    "value": "4",
+                    "displayValue": "Closed Incomplete"
+                },
+                {
+                    "value": "7",
+                    "displayValue": "Closed Skipped"
+                }
+            ],
+            "hidden": false,
+            "internalColumnName": {
+                "pm_project_task": "state"
+            }
+        },
+        {
+            "label": "Additional assignee list",
+            "name": "additional_assignee_list",
+            "editable": true,
+            "type": "avatar_group",
+            "width": 250,
+            "hidden": false,
+            "cellContextMenu": false,
+            "hideable": true,
+            "dbColumnName": "additional_assignee_list",
+            "internalColumnName": {
+                "pm_project_task": "additional_assignee_list"
+            }
+        },
+        {
+            "label": "Release",
+            "name": "u_release",
+            "editable": true,
+            "type": "reference",
+            "width": 130,
+            "hidden": false,
+            "hideable": true,
+            "cellContextMenu": false,
+            "dbColumnName": "u_release",
+            "internalColumnName": {
+                "pm_project_task": "u_release"
+            }
+        },
+        {
+            "label": "Task Region",
+            "name": "u_task_region",
+            "editable": true,
+            "type": "reference",
+            "width": 130,
+            "hidden": false,
+            "hideable": true,
+            "cellContextMenu": false,
+            "dbColumnName": "u_task_region",
+            "internalColumnName": {
+                "pm_project_task": "u_task_region"
+            }
+        },
+        {
+            "label": "Task Phase",
+            "name": "u_task_phase",
+            "editable": true,
+            "type": "reference",
+            "width": 130,
+            "hidden": false,
+            "hideable": true,
+            "cellContextMenu": false,
+            "dbColumnName": "u_task_phase",
+            "referenceTable": "u_ppm_reference_choices",
+            "internalColumnName": {
+                "pm_project_task": "u_task_phase"
+            }
+        }
+    ];
+
+    const TABLE_CONFIGS = {
+        pm_portfolio: {
+            orderBy: 'name',
+            parentField: null,
+			additionalQuery:[],
+            displaySuffix: '(Portfolio)',
+            requiredFields: ['sys_id', 'name', 'description', 'portfolio_manager']
+        },
+        pm_program: {
+            parentField: 'portfolio.sys_id',
+			orderBy: 'short_description',
+			additionalQuery:[],
+            displaySuffix: '(Program)',
+            requiredFields: ['sys_id', 'short_description', 'description', 'start_date', 'end_date', 'state', 'program_manager', 'portfolio']
+        },
+        pm_project: {
+            parentField: 'primary_portfolio.sys_id',
+            orderBy: 'number',
+			additionalQuery:[],
+            displaySuffix: '(Project)',
+            requiredFields: ['sys_id', 'short_description', 'description', 'start_date', 'end_date', 'state', 'project_manager', 'primary_program', 'primary_portfolio']
+        },
+        pm_project_task: {
+            parentField: 'top_portfolio.sys_id',
+            orderBy: 'number', 
+			additionalQuery:[],
+            displaySuffix: '(Project Task)',
+            requiredFields: ['sys_id', 'short_description', 'description', 'start_date', 'end_date', 'assigned_to', 'state', 
+                           'additional_assignee_list', 'u_release', 'u_task_region', 'u_task_phase', 'parent']
+        }
+    };
+
+    function formatDate(dateString) {
+        return dateString ? dateString.split(' ')[0] : '';
+    }
+
+    function queryRecords(tableName, encodedQuery, firstRow, lastRow, portfolioIds) {
+        const gr = new GlideRecordSecure(tableName);
+        const config = TABLE_CONFIGS[tableName];
+        const additionalQuery = tableName === "pm_project_task" ? "stateIN"+config.additionalQuery : "sys_idIN"+config.additionalQuery;
+        if (encodedQuery) {
+            gr.addEncodedQuery(encodedQuery);
+        }
+        
+        if (config.parentField && portfolioIds.length) {
+            gr.addEncodedQuery(config.parentField + 'IN' + portfolioIds.join(','));
+        }
+        
+        if (config.orderBy) {
+            gr.orderBy(config.orderBy);
+        }
+        
+        if (config.additionalQuery.length != 0) {
+            gr.addEncodedQuery(additionalQuery);
+        }
+
+        if (tableName === 'pm_portfolio') {
+            gr.chooseWindow(firstRow, lastRow);
+        }
+        gr.query();
+        return gr;
+    }
+
+    function createRecordTemplate(record, tableName) {
+        const config = TABLE_CONFIGS[tableName];
+        const template = {
+            id: record.getValue('sys_id'),
+            text: {
+                value: record.getValue(tableName === 'pm_portfolio' ? 'name' : 'short_description'),
+                displayValue: record.getDisplayValue(tableName === 'pm_portfolio' ? 'name' : 'short_description') + 
+                            ' ' + config.displaySuffix
+            },
+            description: {
+                value: record.getValue('description'),
+                displayValue: record.getDisplayValue('description')
+            },
+            u_table_name: {
+                value: record.getTableName(),
+                displayValue: record.getTableName()
+            },
+            _metadata: {
+                tableName: tableName
+            },
+            parent: null
+        };
+
+        // Add table-specific fields
+        if (tableName !== 'pm_portfolio') {
+            template.startDate = {
+                value: record.getValue('start_date'),
+                displayValue: formatDate(record.getDisplayValue('start_date'))
+            };
+            template.endDate = {
+                value: record.getValue('end_date'),
+                displayValue: formatDate(record.getDisplayValue('end_date'))
+            };
+            template.state = {
+                value: record.getValue('state'),
+                displayValue: record.getDisplayValue('state')
+            };
+        }
+
+        // Set parent field based on table type
+        switch(tableName) {
+            case 'pm_program':
+                template.parent = record.getValue('portfolio');
+                break;
+            case 'pm_project':
+                template.parent = !record.primary_program.nil() ? 
+                    record.getValue('primary_program') : 
+                    record.getValue('primary_portfolio');
+                break;
+            case 'pm_project_task':
+                template.parent = record.getValue('parent');
+                // Add task-specific fields
+                template.assigned_to = {
+                    value: record.getValue('assigned_to'),
+                    displayValue: record.getDisplayValue('assigned_to')
+                };
+                template.additional_assignee_list = {
+                    value: record.getValue('additional_assignee_list'),
+                    displayValue: record.getDisplayValue('additional_assignee_list')
+                };
+                ['u_release', 'u_task_region', 'u_task_phase'].forEach(field => {
+                    template[field] = {
+                        value: record.getValue(field),
+                        displayValue: record.getDisplayValue(field)
+                    };
+                });
+                break;
+        }
+
+        // Set owner field
+        template.owner = {
+            value: record.getValue(tableName === 'pm_project_task' ? 'assigned_to' : 
+                   tableName === 'pm_project' ? 'project_manager' :
+                   tableName === 'pm_program' ? 'program_manager' : 'portfolio_manager'),
+            displayValue: record.getDisplayValue(tableName === 'pm_project_task' ? 'assigned_to' : 
+                         tableName === 'pm_project' ? 'project_manager' :
+                         tableName === 'pm_program' ? 'program_manager' : 'portfolio_manager')
+        };
+
+        return template;
+    }
+	function getRelatedRecord(table,portfolio_field,query,existingRecords){
+		var gr = new GlideRecordSecure(table);
+		gr.addEncodedQuery(query);
+		gr.query();
+		while(gr.next()){
+			if(gr.getValue(portfolio_field) && existingRecords.indexOf(gr.getValue(portfolio_field)) == -1)
+				existingRecords.push(gr.getValue(portfolio_field));
+		}
+		return existingRecords;
+	}
+
+    function processRecords() {
+        const page = parseInt(request.body.data.page);
+		const filter_obj = Object.keys(request.body.data.query).length === 0 ? [] : request.body.data.query;
+        const firstRow = page * ITEMS_PER_PAGE;
+        const lastRow = firstRow + ITEMS_PER_PAGE;
+        const results = [];
+		const projectIds = [];
+		filter_obj.forEach(f => {
+			const {label,source,values} = f;
+			switch(label){
+				case 'Portfolio':
+					TABLE_CONFIGS.pm_portfolio.additionalQuery = values;
+					break;
+				case 'Program':
+					TABLE_CONFIGS.pm_program.additionalQuery = values;
+					TABLE_CONFIGS.pm_portfolio.additionalQuery = getRelatedRecord('pm_program','portfolio','sys_idIN'+values,TABLE_CONFIGS.pm_portfolio.additionalQuery);
+					TABLE_CONFIGS.pm_project.query = "primary_program.sys_idIN"+values;
+					break;
+				case 'Project':
+					TABLE_CONFIGS.pm_project.additionalQuery = values;
+					TABLE_CONFIGS.pm_portfolio.additionalQuery = getRelatedRecord('pm_project','primary_portfolio','sys_idIN'+values,TABLE_CONFIGS.pm_portfolio.additionalQuery);
+					TABLE_CONFIGS.pm_program.additionalQuery = getRelatedRecord('pm_project','primary_program','sys_idIN'+values,TABLE_CONFIGS.pm_program.additionalQuery);
+					break;
+				case 'Portfolio Manager':
+					TABLE_CONFIGS.pm_portfolio.additionalQuery = getRelatedRecord('pm_portfolio','sys_id','portfolio_manager.sys_idIN'+values,TABLE_CONFIGS.pm_portfolio.additionalQuery);
+					break;
+				case 'Program Manager':
+					TABLE_CONFIGS.pm_program.additionalQuery = getRelatedRecord('pm_program','sys_id','program_manager.sys_idIN'+values,TABLE_CONFIGS.pm_program.additionalQuery);
+					TABLE_CONFIGS.pm_portfolio.additionalQuery = getRelatedRecord('pm_program','portfolio','sys_idIN'+TABLE_CONFIGS.pm_program.additionalQuery,TABLE_CONFIGS.pm_portfolio.additionalQuery);
+					TABLE_CONFIGS.pm_project.query = "primary_program.sys_idIN"+TABLE_CONFIGS.pm_program.additionalQuery;
+					break;
+				case 'Project Manager':
+					TABLE_CONFIGS.pm_project.additionalQuery = getRelatedRecord('pm_project','sys_id','project_manager.sys_idIN'+values,TABLE_CONFIGS.pm_project.additionalQuery);
+					TABLE_CONFIGS.pm_portfolio.additionalQuery = getRelatedRecord('pm_project','primary_portfolio','sys_idIN'+TABLE_CONFIGS.pm_project.additionalQuery,TABLE_CONFIGS.pm_portfolio.additionalQuery);
+					TABLE_CONFIGS.pm_program.additionalQuery = getRelatedRecord('pm_project','primary_program','sys_idIN'+TABLE_CONFIGS.pm_project.additionalQuery,TABLE_CONFIGS.pm_program.additionalQuery);
+					break;
+				case 'State':
+					TABLE_CONFIGS.pm_project_task.additionalQuery = values;
+					break;
+			}
+		});
+        // Query portfolios first
+        const portfolios = queryRecords('pm_portfolio', TABLE_CONFIGS.pm_portfolio.query, firstRow, lastRow);
+		portfolioCount = portfolios.getRowCount();
+        while (portfolios.next()) {
+            const template = createRecordTemplate(portfolios, 'pm_portfolio');
+            results.push(template);
+            portfolioIds.push(template.id);
+        }
+
+        // Query related records
+        ['pm_program', 'pm_project'].forEach(tableName => {
+            if (portfolioIds.length) {
+                const records = queryRecords(tableName, TABLE_CONFIGS[tableName].query, null, null, portfolioIds);
+                while (records.next()) {
+                    results.push(createRecordTemplate(records, tableName));
+					if(tableName === "pm_project")
+						projectIds.push(records.getValue('sys_id'));
+                }
+            }
+        });
+
+		const prjTask = queryRecords('pm_project_task','top_taskIN'+projectIds, null, null,[]);
+		while(prjTask.next()){
+			results.push(createRecordTemplate(prjTask, 'pm_project_task'));
+		}
+
+        return results;
+    }
+
+    // Main execution
+    try {
+        const ganttData = processRecords();
+        response.setBody({
+            gantt_data: ganttData,
+            column_conf: COLUMN_DATA,
+			count: portfolioCount
+        });
+        gs.info(['GetProjectTaskChronology', request.body.data.page, JSON.stringify(request.body.data.query)].join());
+    } catch (error) {
+        gs.error('Error in GetProjectTaskChronology: ' + error);
+        response.setStatus(500);
+    }
+
+})(request, response);]]></operation_script>
+        <operation_uri>/api/x_main2_mars_spm_0/spm_reporting/getProjectTaskChronology</operation_uri>
+        <produces>application/json,application/xml,text/xml</produces>
+        <produces_customized>false</produces_customized>
+        <relative_path>/getProjectTaskChronology</relative_path>
+        <request_example/>
+        <requires_acl_authorization>true</requires_acl_authorization>
+        <requires_authentication>true</requires_authentication>
+        <requires_snc_internal_role>true</requires_snc_internal_role>
+        <short_description/>
+        <sys_class_name>sys_ws_operation</sys_class_name>
+        <sys_created_by>vallakal</sys_created_by>
+        <sys_created_on>2024-12-05 04:07:22</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>f7088e99975a12943e147a76f053afe4</sys_id>
+        <sys_mod_count>89</sys_mod_count>
+        <sys_name>getProjectTaskChronology</sys_name>
+        <sys_package display_value="MARS SPM Reporting" source="x_main2_mars_spm_0">e8724f28938d1e507ce7f81d6cba1022</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="MARS SPM Reporting">e8724f28938d1e507ce7f81d6cba1022</sys_scope>
+        <sys_update_name>sys_ws_operation_f7088e99975a12943e147a76f053afe4</sys_update_name>
+        <sys_updated_by>vallakal</sys_updated_by>
+        <sys_updated_on>2025-01-14 20:08:36</sys_updated_on>
+        <web_service_definition display_value="SPM Reporting">1424076c938d1e507ce7f81d6cba1094</web_service_definition>
+        <web_service_version/>
+    </sys_ws_operation>
+    <sys_es_latest_script action="INSERT_OR_UPDATE">
+        <id>f7088e99975a12943e147a76f053afe4</id>
+        <sys_created_by>vallakal</sys_created_by>
+        <sys_created_on>2024-12-18 22:04:37</sys_created_on>
+        <sys_id>e06b78fd83eeda50d9edd1347daad36f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>vallakal</sys_updated_by>
+        <sys_updated_on>2024-12-18 22:04:37</sys_updated_on>
+        <table>sys_ws_operation</table>
+        <use_es_latest>true</use_es_latest>
+    </sys_es_latest_script>
+</record_update>

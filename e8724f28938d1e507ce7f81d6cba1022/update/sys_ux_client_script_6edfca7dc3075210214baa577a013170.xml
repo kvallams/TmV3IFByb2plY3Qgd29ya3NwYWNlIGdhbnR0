@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ux_client_script">
+    <sys_ux_client_script action="INSERT_OR_UPDATE">
+        <controller_preset/>
+        <includes>8f0ec3492c5f441781f1f44f36351242</includes>
+        <macroponent display_value="Default">2db44215975a12943e147a76f053afcc</macroponent>
+        <name>Apply filter conditions</name>
+        <preset/>
+        <required_translations>[]</required_translations>
+        <script><![CDATA[/**
+* @param {params} params
+* @param {api} params.api
+* @param {any} params.event
+* @param {any} params.imports
+* @param {ApiHelpers} params.helpers
+*/
+function handler({api, event, helpers, imports}) {
+	debugger;
+    const mergePARFiltersV2 = imports["global.mergePARFilters"]().v2;
+	const { appliedFilters } = event.payload;
+	const temp = {
+		filter:null,
+		columnData: api.state.colmnData
+	};
+	api.setState("parFilters", ({ currentValue, api }) => {
+		const { parFilters } = mergePARFiltersV2(currentValue, appliedFilters);
+		temp.filter = parFilters
+		api.setState("filter", JSON.stringify(parFilters));
+		return parFilters;
+	});
+	api.data.save_user_preference.execute({
+        	name: "x_main2_mars_spm_0_u_ptask_chronology",
+        	value: JSON.stringify(temp)
+    });
+}]]></script>
+        <script_api_version>2.0.0</script_api_version>
+        <sys_class_name>sys_ux_client_script</sys_class_name>
+        <sys_created_by>vallakal</sys_created_by>
+        <sys_created_on>2025-01-13 00:46:03</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>6edfca7dc3075210214baa577a013170</sys_id>
+        <sys_mod_count>18</sys_mod_count>
+        <sys_name>Apply filter conditions</sys_name>
+        <sys_package display_value="MARS SPM Reporting" source="x_main2_mars_spm_0">e8724f28938d1e507ce7f81d6cba1022</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="MARS SPM Reporting">e8724f28938d1e507ce7f81d6cba1022</sys_scope>
+        <sys_update_name>sys_ux_client_script_6edfca7dc3075210214baa577a013170</sys_update_name>
+        <sys_updated_by>vallakal</sys_updated_by>
+        <sys_updated_on>2025-01-15 02:09:09</sys_updated_on>
+        <target>macroponent</target>
+        <type>default</type>
+    </sys_ux_client_script>
+</record_update>

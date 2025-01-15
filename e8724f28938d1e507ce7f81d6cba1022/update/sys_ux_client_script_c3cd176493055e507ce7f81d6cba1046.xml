@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ux_client_script">
+    <sys_ux_client_script action="INSERT_OR_UPDATE">
+        <controller_preset/>
+        <includes>8f0ec3492c5f441781f1f44f36351242</includes>
+        <macroponent display_value="Default">7fb80fe093015e507ce7f81d6cba1063</macroponent>
+        <name>Apply filter conditions</name>
+        <preset/>
+        <required_translations>[
+    
+]</required_translations>
+        <script><![CDATA[/**
+* @param {params} params
+* @param {api} params.api
+* @param {any} params.event
+* @param {any} params.imports
+* @param {ApiHelpers} params.helpers
+*/
+function handler({api, event, helpers, imports}) {
+    const mergePARFiltersV2 = imports["global.mergePARFilters"]().v2;
+	const { appliedFilters } = event.payload;
+	var queries = [];
+	var final_query = '';
+	api.setState("parFilters", ({ currentValue, api }) => {
+		const { parFilters } = mergePARFiltersV2(currentValue, appliedFilters);
+		for(var i=0;i<parFilters.length;i++){
+			var t = parFilters[i].apply_to[0].split('.')[1];
+			if(parFilters[i].label == 'Portfolio'|| parFilters[i].label == 'Program')
+				queries.push(t+'.sys_idIN'+parFilters[i].values);
+			else
+				queries.push(t+'IN'+parFilters[i].values);
+		}
+		final_query = queries.join("^");
+		api.setState("userPreference",JSON.stringify(parFilters));
+		api.setState("filter", final_query);
+		return parFilters;
+	});
+}]]></script>
+        <script_api_version>2.0.0</script_api_version>
+        <sys_class_name>sys_ux_client_script</sys_class_name>
+        <sys_created_by>vallakal</sys_created_by>
+        <sys_created_on>2024-10-01 23:16:34</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>c3cd176493055e507ce7f81d6cba1046</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>Apply filter conditions</sys_name>
+        <sys_package display_value="MARS SPM Reporting" source="x_main2_mars_spm_0">e8724f28938d1e507ce7f81d6cba1022</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="MARS SPM Reporting">e8724f28938d1e507ce7f81d6cba1022</sys_scope>
+        <sys_update_name>sys_ux_client_script_c3cd176493055e507ce7f81d6cba1046</sys_update_name>
+        <sys_updated_by>vallakal</sys_updated_by>
+        <sys_updated_on>2024-10-01 23:16:34</sys_updated_on>
+        <target>macroponent</target>
+        <type>default</type>
+    </sys_ux_client_script>
+</record_update>

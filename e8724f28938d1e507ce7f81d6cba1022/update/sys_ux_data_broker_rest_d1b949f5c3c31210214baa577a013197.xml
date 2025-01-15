@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ux_data_broker_rest">
+    <sys_ux_data_broker_rest action="INSERT_OR_UPDATE">
+        <api_name>x_main2_mars_spm_0.Update Project Task Chronology Data</api_name>
+        <api_url>/api/x_main2_mars_spm_0/spm_reporting/updateSPMReportingData</api_url>
+        <batch_exclude>false</batch_exclude>
+        <description/>
+        <http_method>POST</http_method>
+        <mutates_server_data>true</mutates_server_data>
+        <name>Update Project Task Chronology Data</name>
+        <output_schema>[{&#13;
+      "name":"response",&#13;
+      "label":"Response",&#13;
+      "fieldType":"object",&#13;
+      "readOnly":false&#13;
+}]</output_schema>
+        <parameters/>
+        <private>false</private>
+        <props>[&#13;
+  {&#13;
+    "name": "templatefields",&#13;
+    "label": "Template Fields",&#13;
+    "description": "Template fields that need to be updated",&#13;
+    "readOnly": false,&#13;
+    "mandatory": true,&#13;
+    "fieldType": "string",&#13;
+    "defaultValue": ""&#13;
+  },&#13;
+{&#13;
+    "name": "table",&#13;
+    "label": "Table Name",&#13;
+    "description": "Table Name of the record that is being updated",&#13;
+    "readOnly": false,&#13;
+    "mandatory":true,&#13;
+    "fieldType": "string",&#13;
+    "defaultValue": ""&#13;
+  },&#13;
+{&#13;
+    "name": "sys_id",&#13;
+    "label": "Record sys_id",&#13;
+    "description": "Sys ID of the record that is being updated",&#13;
+    "readOnly": false,&#13;
+    "mandatory":true,&#13;
+    "fieldType": "string",&#13;
+    "defaultValue": ""&#13;
+  }&#13;
+]</props>
+        <request_body>{&#13;
+    "templatefields":"{{templatefields}}",&#13;
+    "table":"{{table}}",&#13;
+    "sys_id":"{{sys_id}}"&#13;
+}</request_body>
+        <required_translations>[ {
+  "message" : "Record sys_id",
+  "comment" : ""
+}, {
+  "message" : "Sys ID of the record that is being updated",
+  "comment" : ""
+}, {
+  "message" : "Table Name",
+  "comment" : ""
+}, {
+  "message" : "Table Name of the record that is being updated",
+  "comment" : ""
+}, {
+  "message" : "Template Fields",
+  "comment" : ""
+}, {
+  "message" : "Template fields that need to be updated",
+  "comment" : ""
+} ]</required_translations>
+        <schema_version>1.0.0</schema_version>
+        <sys_class_name>sys_ux_data_broker_rest</sys_class_name>
+        <sys_created_by>vallakal</sys_created_by>
+        <sys_created_on>2025-01-12 19:38:59</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>d1b949f5c3c31210214baa577a013197</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_name>Update Project Task Chronology Data</sys_name>
+        <sys_package display_value="MARS SPM Reporting" source="x_main2_mars_spm_0">e8724f28938d1e507ce7f81d6cba1022</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="MARS SPM Reporting">e8724f28938d1e507ce7f81d6cba1022</sys_scope>
+        <sys_update_name>sys_ux_data_broker_rest_d1b949f5c3c31210214baa577a013197</sys_update_name>
+        <sys_updated_by>vallakal</sys_updated_by>
+        <sys_updated_on>2025-01-12 20:12:28</sys_updated_on>
+    </sys_ux_data_broker_rest>
+</record_update>
