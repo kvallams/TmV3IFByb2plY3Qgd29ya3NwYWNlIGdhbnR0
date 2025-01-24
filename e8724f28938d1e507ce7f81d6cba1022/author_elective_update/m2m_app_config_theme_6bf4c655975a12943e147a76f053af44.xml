@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="m2m_app_config_theme">
+    <m2m_app_config_theme action="DELETE">
+        <applicability/>
+        <order>0</order>
+        <sys_class_name>m2m_app_config_theme</sys_class_name>
+        <sys_created_by>vallakal</sys_created_by>
+        <sys_created_on>2024-12-05 03:53:33</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_domain>global</sys_domain>
+        <sys_id>6bf4c655975a12943e147a76f053af44</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_overrides/>
+        <sys_package display_value="MARS SPM Reporting" source="x_main2_mars_spm_0">e8724f28938d1e507ce7f81d6cba1022</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="MARS SPM Reporting">e8724f28938d1e507ce7f81d6cba1022</sys_scope>
+        <sys_update_name>m2m_app_config_theme_6bf4c655975a12943e147a76f053af44</sys_update_name>
+        <sys_updated_by>vallakal</sys_updated_by>
+        <sys_updated_on>2024-12-05 03:53:33</sys_updated_on>
+        <theme/>
+        <ux_app_configuration display_value="Project Task Chronology">e414ce91975a12943e147a76f053af8f</ux_app_configuration>
+    </m2m_app_config_theme>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="MARS SPM Reporting">e8724f28938d1e507ce7f81d6cba1022</application>
+        <file_path/>
+        <instance_id>0cb6698deb4bc25ce483f459bad0cd16</instance_id>
+        <instance_name>dev276974</instance_name>
+        <name>m2m_app_config_theme_6bf4c655975a12943e147a76f053af44</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="m2m_app_config_theme"><m2m_app_config_theme action="INSERT_OR_UPDATE"><applicability/><order>0</order><sys_class_name>m2m_app_config_theme</sys_class_name><sys_created_by>vallakal</sys_created_by><sys_created_on>2024-12-05 03:53:33</sys_created_on><sys_customer_update>false</sys_customer_update><sys_domain>global</sys_domain><sys_id>6bf4c655975a12943e147a76f053af44</sys_id><sys_mod_count>0</sys_mod_count><sys_name/><sys_overrides/><sys_package display_value="MARS SPM Reporting" source="x_main2_mars_spm_0">e8724f28938d1e507ce7f81d6cba1022</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="MARS SPM Reporting">e8724f28938d1e507ce7f81d6cba1022</sys_scope><sys_update_name>m2m_app_config_theme_6bf4c655975a12943e147a76f053af44</sys_update_name><sys_updated_by>vallakal</sys_updated_by><sys_updated_on>2024-12-05 03:53:33</sys_updated_on><theme/><ux_app_configuration display_value="Project Task Chronology">e414ce91975a12943e147a76f053af8f</ux_app_configuration></m2m_app_config_theme></record_update>]]></payload>
+        <payload_hash>-1223926244</payload_hash>
+        <record_name/>
+        <reverted_from/>
+        <source>7e093062830f12104d7effefeeaad381</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-01-15 02:21:15</sys_created_on>
+        <sys_id>fa097062830f12104d7effefeeaad36a</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19467c3d5b60000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-01-15 02:21:15</sys_updated_on>
+        <type>UX App Theme</type>
+        <update_guid>e3f4c655775a129403581a89659dde46</update_guid>
+        <update_guid_history>e3f4c655775a129403581a89659dde46:-1223926244</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-01-24 17:33:24</sys_created_on>
+        <sys_db_object display_value="" name="m2m_app_config_theme">m2m_app_config_theme</sys_db_object>
+        <sys_id>361e5171d94e41559a3bea7753e36699</sys_id>
+        <sys_metadata>6bf4c655975a12943e147a76f053af44</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="MARS SPM Reporting" source="x_main2_mars_spm_0">e8724f28938d1e507ce7f81d6cba1022</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="MARS SPM Reporting">e8724f28938d1e507ce7f81d6cba1022</sys_scope>
+        <sys_scope_delete display_value="">0216f24669d04194b1abad36f56e0b90</sys_scope_delete>
+        <sys_update_name>m2m_app_config_theme_6bf4c655975a12943e147a76f053af44</sys_update_name>
+        <sys_update_version display_value="m2m_app_config_theme_6bf4c655975a12943e147a76f053af44">fa097062830f12104d7effefeeaad36a</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-01-24 17:33:24</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

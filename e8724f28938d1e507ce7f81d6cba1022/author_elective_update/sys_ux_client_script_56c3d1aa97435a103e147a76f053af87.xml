@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ux_client_script">
+    <sys_ux_client_script action="DELETE">
+        <controller_preset/>
+        <includes/>
+        <macroponent display_value="Default">2db44215975a12943e147a76f053afcc</macroponent>
+        <name>New client script 1</name>
+        <preset/>
+        <required_translations>[]</required_translations>
+        <script><![CDATA[/**
+* @param {params} params
+* @param {api} params.api
+* @param {any} params.event
+* @param {any} params.imports
+* @param {ApiHelpers} params.helpers
+*/
+function handler({api, event, helpers, imports}) {
+    console.log(event);
+    console.log(api.data.project_task_chronology_1.output);
+}]]></script>
+        <script_api_version>2.0.0</script_api_version>
+        <sys_class_name>sys_ux_client_script</sys_class_name>
+        <sys_created_by>vallakal</sys_created_by>
+        <sys_created_on>2025-01-15 04:45:59</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>56c3d1aa97435a103e147a76f053af87</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>New client script 1</sys_name>
+        <sys_package display_value="MARS SPM Reporting" source="x_main2_mars_spm_0">e8724f28938d1e507ce7f81d6cba1022</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="MARS SPM Reporting">e8724f28938d1e507ce7f81d6cba1022</sys_scope>
+        <sys_update_name>sys_ux_client_script_56c3d1aa97435a103e147a76f053af87</sys_update_name>
+        <sys_updated_by>vallakal</sys_updated_by>
+        <sys_updated_on>2025-01-15 04:49:39</sys_updated_on>
+        <target>macroponent</target>
+        <type>default</type>
+    </sys_ux_client_script>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="MARS SPM Reporting">e8724f28938d1e507ce7f81d6cba1022</application>
+        <file_path/>
+        <instance_id>0cb6698deb4bc25ce483f459bad0cd16</instance_id>
+        <instance_name>dev276974</instance_name>
+        <name>sys_ux_client_script_56c3d1aa97435a103e147a76f053af87</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sys_ux_client_script"&gt;&lt;sys_ux_client_script action="INSERT_OR_UPDATE"&gt;&lt;controller_preset/&gt;&lt;includes/&gt;&lt;macroponent display_value="Default"&gt;2db44215975a12943e147a76f053afcc&lt;/macroponent&gt;&lt;name&gt;New client script 1&lt;/name&gt;&lt;preset/&gt;&lt;required_translations&gt;[]&lt;/required_translations&gt;&lt;script&gt;&lt;![CDATA[/**
+* @param {params} params
+* @param {api} params.api
+* @param {any} params.event
+* @param {any} params.imports
+* @param {ApiHelpers} params.helpers
+*/
+function handler({api, event, helpers, imports}) {
+    console.log(event);
+    console.log(api.data.project_task_chronology_1.output);
+}]]&gt;&lt;/script&gt;&lt;script_api_version&gt;2.0.0&lt;/script_api_version&gt;&lt;sys_class_name&gt;sys_ux_client_script&lt;/sys_class_name&gt;&lt;sys_created_by&gt;vallakal&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2025-01-15 04:45:59&lt;/sys_created_on&gt;&lt;sys_customer_update&gt;false&lt;/sys_customer_update&gt;&lt;sys_id&gt;56c3d1aa97435a103e147a76f053af87&lt;/sys_id&gt;&lt;sys_mod_count&gt;3&lt;/sys_mod_count&gt;&lt;sys_name&gt;New client script 1&lt;/sys_name&gt;&lt;sys_package display_value="MARS SPM Reporting" source="x_main2_mars_spm_0"&gt;e8724f28938d1e507ce7f81d6cba1022&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_replace_on_upgrade&gt;false&lt;/sys_replace_on_upgrade&gt;&lt;sys_scope display_value="MARS SPM Reporting"&gt;e8724f28938d1e507ce7f81d6cba1022&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_ux_client_script_56c3d1aa97435a103e147a76f053af87&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;vallakal&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2025-01-15 04:49:39&lt;/sys_updated_on&gt;&lt;target&gt;macroponent&lt;/target&gt;&lt;type&gt;default&lt;/type&gt;&lt;/sys_ux_client_script&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>-530306793</payload_hash>
+        <record_name>New client script 1</record_name>
+        <reverted_from/>
+        <source>4c7a62d4831312104d7effefeeaad327</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-01-20 21:06:04</sys_created_on>
+        <sys_id>a87aa2d4831312104d7effefeeaad34b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19485896f780000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-01-20 21:06:04</sys_updated_on>
+        <type>UX Client Script</type>
+        <update_guid>340b19ae0f835a1020bd9aa65ce87646</update_guid>
+        <update_guid_history>340b19ae0f835a1020bd9aa65ce87646:-530306793,d32a1d2e00835a1002d7848927bd390b:-1557908026</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-01-24 17:33:25</sys_created_on>
+        <sys_db_object display_value="" name="sys_ux_client_script">sys_ux_client_script</sys_db_object>
+        <sys_id>1cff0643a39a41b0a3f3250bff6be840</sys_id>
+        <sys_metadata>56c3d1aa97435a103e147a76f053af87</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>New client script 1</sys_name>
+        <sys_package display_value="MARS SPM Reporting" source="x_main2_mars_spm_0">e8724f28938d1e507ce7f81d6cba1022</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="MARS SPM Reporting">e8724f28938d1e507ce7f81d6cba1022</sys_scope>
+        <sys_scope_delete display_value="">0216f24669d04194b1abad36f56e0b90</sys_scope_delete>
+        <sys_update_name>sys_ux_client_script_56c3d1aa97435a103e147a76f053af87</sys_update_name>
+        <sys_update_version display_value="sys_ux_client_script_56c3d1aa97435a103e147a76f053af87">a87aa2d4831312104d7effefeeaad34b</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-01-24 17:33:25</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

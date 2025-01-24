@@ -1869,7 +1869,6 @@
         <description/>
         <disable_auto_reflow>false</disable_auto_reflow>
         <dispatched_events/>
-        <events/>
         <ext_controller_dep/>
         <extends display_value="Page Template">19be392623033300f4b4c50947bf65ba</extends>
         <extension_point/>
@@ -1991,16 +1990,15 @@
         <sys_class_name>sys_ux_macroponent</sys_class_name>
         <sys_created_by>vallakal</sys_created_by>
         <sys_created_on>2024-10-01 21:35:39</sys_created_on>
-        <sys_customer_update>false</sys_customer_update>
         <sys_id>7fb80fe093015e507ce7f81d6cba1063</sys_id>
         <sys_mod_count>28</sys_mod_count>
         <sys_name>Default</sys_name>
         <sys_package display_value="MARS SPM Reporting" source="x_main2_mars_spm_0">e8724f28938d1e507ce7f81d6cba1022</sys_package>
         <sys_policy/>
-        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="MARS SPM Reporting">e8724f28938d1e507ce7f81d6cba1022</sys_scope>
         <sys_update_name>sys_ux_macroponent_7fb80fe093015e507ce7f81d6cba1063</sys_update_name>
         <sys_updated_by>vallakal</sys_updated_by>
         <sys_updated_on>2024-10-17 21:24:17</sys_updated_on>
     </sys_ux_macroponent>
+    <sys_translated_text action="delete_multiple" query="documentkey=7fb80fe093015e507ce7f81d6cba1063"/>
 </record_update>

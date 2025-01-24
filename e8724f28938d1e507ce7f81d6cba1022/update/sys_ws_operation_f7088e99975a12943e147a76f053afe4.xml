@@ -577,13 +577,11 @@
         <sys_class_name>sys_ws_operation</sys_class_name>
         <sys_created_by>vallakal</sys_created_by>
         <sys_created_on>2024-12-05 04:07:22</sys_created_on>
-        <sys_customer_update>false</sys_customer_update>
         <sys_id>f7088e99975a12943e147a76f053afe4</sys_id>
         <sys_mod_count>171</sys_mod_count>
         <sys_name>getProjectTaskChronology</sys_name>
         <sys_package display_value="MARS SPM Reporting" source="x_main2_mars_spm_0">e8724f28938d1e507ce7f81d6cba1022</sys_package>
         <sys_policy/>
-        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="MARS SPM Reporting">e8724f28938d1e507ce7f81d6cba1022</sys_scope>
         <sys_update_name>sys_ws_operation_f7088e99975a12943e147a76f053afe4</sys_update_name>
         <sys_updated_by>vallakal</sys_updated_by>
