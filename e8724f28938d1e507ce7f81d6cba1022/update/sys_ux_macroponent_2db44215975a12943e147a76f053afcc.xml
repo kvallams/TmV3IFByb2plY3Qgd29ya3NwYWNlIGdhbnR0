@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ux_macroponent">
     <sys_ux_macroponent action="INSERT_OR_UPDATE">
         <associated_types/>
-        <bundles/>
+        <bundles>[]</bundles>
         <category>page</category>
         <component_dependencies/>
         <composition>[
@@ -12,9 +12,7 @@
         },
         "elementLabel": "Column layout Filters",
         "elementId": "column_layout_filters",
-        "eventMappings": [
-            
-        ],
+        "eventMappings": [],
         "propertyValues": {
             "slotWrapperBehavior": {
                 "type": "JSON_LITERAL",
@@ -41,9 +39,7 @@
                     },
                     "elementLabel": "Column 1",
                     "elementId": "__cmeeasjjsofaaddutddbiiamhhbbjjwxph__column_1",
-                    "eventMappings": [
-                        
-                    ],
+                    "eventMappings": [],
                     "propertyValues": {
                         "slotWrapperBehavior": {
                             "type": "JSON_LITERAL",
@@ -63,7 +59,1712 @@
                     "styles": null,
                     "overrides": {
                         "composition": [
-                            
+                            {
+                                "definition": {
+                                    "id": "226449101138d0dff1abe0e1566c8b2a",
+                                    "type": "MACROPONENT"
+                                },
+                                "elementLabel": "Portfolio Filter",
+                                "elementId": "filter_portfolio",
+                                "eventMappings": [
+                                    {
+                                        "eventMappingId": "cmffubuuaaaaaabbzlddbiiggwtxlgklx",
+                                        "isConfiguration": false,
+                                        "offRowStorageId": null,
+                                        "sourceEventApiName": "sn_component_filte.SN_COMPONENT_FILTER#APPLIED_ITEMS",
+                                        "sourceEventCorrelationId": null,
+                                        "sourceEventSysId": null,
+                                        "targets": [
+                                            {
+                                                "targetId": "cmffubuuaaaaaabbzmddbiigggggwpuzohh",
+                                                "type": "CLIENT_SCRIPT",
+                                                "declarativeAction": null,
+                                                "event": null,
+                                                "operation": null,
+                                                "clientScript": {
+                                                    "sysId": "6edfca7dc3075210214baa577a013170",
+                                                    "payload": {
+                                                        "type": "JSON_LITERAL",
+                                                        "value": {}
+                                                    }
+                                                },
+                                                "conditional": null,
+                                                "broker": null
+                                            },
+                                            {
+                                                "targetId": "cmffvpbwmxaabbzkddbhhiiipggehhuvaa",
+                                                "type": "EVENT",
+                                                "declarativeAction": null,
+                                                "event": {
+                                                    "sysId": "0404f68486f1baab1dc7ef2a27a3de50",
+                                                    "payload": {
+                                                        "type": "JSON_LITERAL",
+                                                        "value": {
+                                                            "loading": true,
+                                                            "label": "Applying filter and querying data....",
+                                                            "action": null,
+                                                            "nonBlocking": true
+                                                        }
+                                                    },
+                                                    "apiName": "sn_uxf_page.NOW_UXF_PAGE#SET_LOADING_STATE"
+                                                },
+                                                "operation": null,
+                                                "clientScript": null,
+                                                "conditional": null,
+                                                "broker": null
+                                            }
+                                        ],
+                                        "sourceEventDefinition": {
+                                            "id": null,
+                                            "apiName": "sn_component_filte.SN_COMPONENT_FILTER#APPLIED_ITEMS",
+                                            "type": "UXEVENT"
+                                        }
+                                    }
+                                ],
+                                "propertyValues": {
+                                    "filterId": {
+                                        "type": "JSON_LITERAL",
+                                        "value": "1ihegeo13rh7u2pidg78"
+                                    },
+                                    "filterName": {
+                                        "type": "TRANSLATION_LITERAL",
+                                        "value": {
+                                            "code": null,
+                                            "message": "Portfolio",
+                                            "comment": ""
+                                        }
+                                    },
+                                    "filterComponentType": {
+                                        "type": "JSON_LITERAL",
+                                        "value": "multiselect"
+                                    },
+                                    "datasource": {
+                                        "type": "JSON_LITERAL",
+                                        "value": {
+                                            "type": "table",
+                                            "payload": {
+                                                "table": "pm_portfolio",
+                                                "primaryKey": "sys_id"
+                                            }
+                                        }
+                                    },
+                                    "targets": {
+                                        "type": "JSON_LITERAL",
+                                        "value": [
+                                            {
+                                                "type": "table",
+                                                "payload": {
+                                                    "table": "pm_portfolio",
+                                                    "primaryKey": "sys_id"
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "allowedDateRanges": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "defaultSelectedItems": {
+                                        "type": "JSON_LITERAL",
+                                        "value": []
+                                    },
+                                    "cascadingConfig": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "defaultSelectedDateRange": {
+                                        "type": "JSON_LITERAL",
+                                        "value": {
+                                            "range": ""
+                                        }
+                                    },
+                                    "defaultDateStart": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "defaultDateEnd": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "allowTimeSelection": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "dateFilterView": {
+                                        "type": "JSON_LITERAL",
+                                        "value": "calendar-reldates"
+                                    },
+                                    "defaultBoolean": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "sort": {
+                                        "type": "JSON_LITERAL",
+                                        "value": "ASC"
+                                    },
+                                    "filterElementType": {
+                                        "type": "JSON_LITERAL",
+                                        "value": "pill"
+                                    },
+                                    "isShowSelectedValueInPill": {
+                                        "type": "JSON_LITERAL",
+                                        "value": true
+                                    },
+                                    "filterElementLayout": {
+                                        "type": "JSON_LITERAL",
+                                        "value": "vertical"
+                                    },
+                                    "booleanLabelTrue": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "booleanLabelFalse": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "enableResetToDefault": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "enableClearFilter": {
+                                        "type": "JSON_LITERAL",
+                                        "value": true
+                                    },
+                                    "primaryActionLabel": {
+                                        "type": "TRANSLATION_LITERAL",
+                                        "value": {
+                                            "code": null,
+                                            "message": "Apply",
+                                            "comment": ""
+                                        }
+                                    },
+                                    "maxElements": {
+                                        "type": "JSON_LITERAL",
+                                        "value": 500
+                                    },
+                                    "filterConfigurations": {
+                                        "type": "STATE_BINDING",
+                                        "binding": {
+                                            "address": [
+                                                "parFilters"
+                                            ]
+                                        }
+                                    },
+                                    "filterProperties": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "cascadeScope": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "isDashboard": {
+                                        "type": "JSON_LITERAL",
+                                        "value": false
+                                    }
+                                },
+                                "isHidden": {
+                                    "type": "JSON_LITERAL",
+                                    "value": null
+                                },
+                                "preset": null,
+                                "slot": null,
+                                "styles": null
+                            },
+                            {
+                                "definition": {
+                                    "id": "226449101138d0dff1abe0e1566c8b2a",
+                                    "type": "MACROPONENT"
+                                },
+                                "elementLabel": "Program Filter",
+                                "elementId": "filter_program",
+                                "eventMappings": [
+                                    {
+                                        "eventMappingId": "cmffubveeqlaabbzoddbiiggggocdhnvu",
+                                        "isConfiguration": false,
+                                        "offRowStorageId": null,
+                                        "sourceEventApiName": "sn_component_filte.SN_COMPONENT_FILTER#APPLIED_ITEMS",
+                                        "sourceEventCorrelationId": null,
+                                        "sourceEventSysId": null,
+                                        "targets": [
+                                            {
+                                                "targetId": "cmffubveeqlaabbzpddbiiggtxzbboxycc",
+                                                "type": "CLIENT_SCRIPT",
+                                                "declarativeAction": null,
+                                                "event": null,
+                                                "operation": null,
+                                                "clientScript": {
+                                                    "sysId": "6edfca7dc3075210214baa577a013170",
+                                                    "payload": {
+                                                        "type": "JSON_LITERAL",
+                                                        "value": {}
+                                                    }
+                                                },
+                                                "conditional": null,
+                                                "broker": null
+                                            },
+                                            {
+                                                "targetId": "cmffvpcwlgaabbzzddbhhiqnkffalffm",
+                                                "type": "EVENT",
+                                                "declarativeAction": null,
+                                                "event": {
+                                                    "sysId": "0404f68486f1baab1dc7ef2a27a3de50",
+                                                    "payload": {
+                                                        "type": "JSON_LITERAL",
+                                                        "value": {
+                                                            "loading": true,
+                                                            "label": "Applying filter and querying data....",
+                                                            "action": null,
+                                                            "nonBlocking": true
+                                                        }
+                                                    },
+                                                    "apiName": "sn_uxf_page.NOW_UXF_PAGE#SET_LOADING_STATE"
+                                                },
+                                                "operation": null,
+                                                "clientScript": null,
+                                                "conditional": null,
+                                                "broker": null
+                                            }
+                                        ],
+                                        "sourceEventDefinition": {
+                                            "id": null,
+                                            "apiName": "sn_component_filte.SN_COMPONENT_FILTER#APPLIED_ITEMS",
+                                            "type": "UXEVENT"
+                                        }
+                                    }
+                                ],
+                                "propertyValues": {
+                                    "filterId": {
+                                        "type": "JSON_LITERAL",
+                                        "value": "1ihegihigj4f80d8d6eg"
+                                    },
+                                    "filterName": {
+                                        "type": "TRANSLATION_LITERAL",
+                                        "value": {
+                                            "code": null,
+                                            "message": "Program",
+                                            "comment": ""
+                                        }
+                                    },
+                                    "filterComponentType": {
+                                        "type": "JSON_LITERAL",
+                                        "value": "multiselect"
+                                    },
+                                    "datasource": {
+                                        "type": "JSON_LITERAL",
+                                        "value": {
+                                            "type": "table",
+                                            "payload": {
+                                                "table": "pm_program",
+                                                "primaryKey": "sys_id"
+                                            }
+                                        }
+                                    },
+                                    "targets": {
+                                        "type": "JSON_LITERAL",
+                                        "value": [
+                                            {
+                                                "type": "table",
+                                                "payload": {
+                                                    "table": "pm_program",
+                                                    "primaryKey": "sys_id"
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "allowedDateRanges": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "defaultSelectedItems": {
+                                        "type": "JSON_LITERAL",
+                                        "value": []
+                                    },
+                                    "cascadingConfig": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "defaultSelectedDateRange": {
+                                        "type": "JSON_LITERAL",
+                                        "value": {
+                                            "range": ""
+                                        }
+                                    },
+                                    "defaultDateStart": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "defaultDateEnd": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "allowTimeSelection": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "dateFilterView": {
+                                        "type": "JSON_LITERAL",
+                                        "value": "calendar-reldates"
+                                    },
+                                    "defaultBoolean": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "sort": {
+                                        "type": "JSON_LITERAL",
+                                        "value": "ASC"
+                                    },
+                                    "filterElementType": {
+                                        "type": "JSON_LITERAL",
+                                        "value": "pill"
+                                    },
+                                    "isShowSelectedValueInPill": {
+                                        "type": "JSON_LITERAL",
+                                        "value": true
+                                    },
+                                    "filterElementLayout": {
+                                        "type": "JSON_LITERAL",
+                                        "value": "vertical"
+                                    },
+                                    "booleanLabelTrue": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "booleanLabelFalse": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "enableResetToDefault": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "enableClearFilter": {
+                                        "type": "JSON_LITERAL",
+                                        "value": true
+                                    },
+                                    "primaryActionLabel": {
+                                        "type": "TRANSLATION_LITERAL",
+                                        "value": {
+                                            "code": null,
+                                            "message": "Apply",
+                                            "comment": ""
+                                        }
+                                    },
+                                    "maxElements": {
+                                        "type": "JSON_LITERAL",
+                                        "value": 500
+                                    },
+                                    "filterConfigurations": {
+                                        "type": "STATE_BINDING",
+                                        "binding": {
+                                            "address": [
+                                                "parFilters"
+                                            ]
+                                        }
+                                    },
+                                    "filterProperties": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "cascadeScope": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "isDashboard": {
+                                        "type": "JSON_LITERAL",
+                                        "value": false
+                                    }
+                                },
+                                "isHidden": {
+                                    "type": "JSON_LITERAL",
+                                    "value": null
+                                },
+                                "preset": null,
+                                "slot": null,
+                                "styles": null
+                            },
+                            {
+                                "definition": {
+                                    "id": "226449101138d0dff1abe0e1566c8b2a",
+                                    "type": "MACROPONENT"
+                                },
+                                "elementLabel": "Project Filter",
+                                "elementId": "filter_project",
+                                "eventMappings": [
+                                    {
+                                        "eventMappingId": "cmffubveddoaabbzrddbiiggmnckggniihh",
+                                        "isConfiguration": false,
+                                        "offRowStorageId": null,
+                                        "sourceEventApiName": "sn_component_filte.SN_COMPONENT_FILTER#APPLIED_ITEMS",
+                                        "sourceEventCorrelationId": null,
+                                        "sourceEventSysId": null,
+                                        "targets": [
+                                            {
+                                                "targetId": "cmffubveddoaabbzsddbiiggxcpyqlns",
+                                                "type": "CLIENT_SCRIPT",
+                                                "declarativeAction": null,
+                                                "event": null,
+                                                "operation": null,
+                                                "clientScript": {
+                                                    "sysId": "6edfca7dc3075210214baa577a013170",
+                                                    "payload": {
+                                                        "type": "JSON_LITERAL",
+                                                        "value": {}
+                                                    }
+                                                },
+                                                "conditional": null,
+                                                "broker": null
+                                            },
+                                            {
+                                                "targetId": "cmffvpdffpgaaccaacddbhhixkuhhefkii",
+                                                "type": "EVENT",
+                                                "declarativeAction": null,
+                                                "event": {
+                                                    "sysId": "0404f68486f1baab1dc7ef2a27a3de50",
+                                                    "payload": {
+                                                        "type": "JSON_LITERAL",
+                                                        "value": {
+                                                            "loading": true,
+                                                            "label": "Applying filter and querying data....",
+                                                            "action": null,
+                                                            "nonBlocking": true
+                                                        }
+                                                    },
+                                                    "apiName": "sn_uxf_page.NOW_UXF_PAGE#SET_LOADING_STATE"
+                                                },
+                                                "operation": null,
+                                                "clientScript": null,
+                                                "conditional": null,
+                                                "broker": null
+                                            }
+                                        ],
+                                        "sourceEventDefinition": {
+                                            "id": null,
+                                            "apiName": "sn_component_filte.SN_COMPONENT_FILTER#APPLIED_ITEMS",
+                                            "type": "UXEVENT"
+                                        }
+                                    }
+                                ],
+                                "propertyValues": {
+                                    "filterId": {
+                                        "type": "JSON_LITERAL",
+                                        "value": "1ihegke6b5bb00pt14k"
+                                    },
+                                    "filterName": {
+                                        "type": "TRANSLATION_LITERAL",
+                                        "value": {
+                                            "code": null,
+                                            "message": "Project",
+                                            "comment": ""
+                                        }
+                                    },
+                                    "filterComponentType": {
+                                        "type": "JSON_LITERAL",
+                                        "value": "multiselect"
+                                    },
+                                    "datasource": {
+                                        "type": "JSON_LITERAL",
+                                        "value": {
+                                            "type": "table",
+                                            "payload": {
+                                                "table": "pm_project",
+                                                "primaryKey": "sys_id"
+                                            }
+                                        }
+                                    },
+                                    "targets": {
+                                        "type": "JSON_LITERAL",
+                                        "value": [
+                                            {
+                                                "type": "table",
+                                                "payload": {
+                                                    "table": "pm_project",
+                                                    "primaryKey": "sys_id"
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "allowedDateRanges": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "defaultSelectedItems": {
+                                        "type": "JSON_LITERAL",
+                                        "value": []
+                                    },
+                                    "cascadingConfig": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "defaultSelectedDateRange": {
+                                        "type": "JSON_LITERAL",
+                                        "value": {
+                                            "range": ""
+                                        }
+                                    },
+                                    "defaultDateStart": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "defaultDateEnd": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "allowTimeSelection": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "dateFilterView": {
+                                        "type": "JSON_LITERAL",
+                                        "value": "calendar-reldates"
+                                    },
+                                    "defaultBoolean": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "sort": {
+                                        "type": "JSON_LITERAL",
+                                        "value": "ASC"
+                                    },
+                                    "filterElementType": {
+                                        "type": "JSON_LITERAL",
+                                        "value": "pill"
+                                    },
+                                    "isShowSelectedValueInPill": {
+                                        "type": "JSON_LITERAL",
+                                        "value": true
+                                    },
+                                    "filterElementLayout": {
+                                        "type": "JSON_LITERAL",
+                                        "value": "vertical"
+                                    },
+                                    "booleanLabelTrue": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "booleanLabelFalse": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "enableResetToDefault": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "enableClearFilter": {
+                                        "type": "JSON_LITERAL",
+                                        "value": true
+                                    },
+                                    "primaryActionLabel": {
+                                        "type": "TRANSLATION_LITERAL",
+                                        "value": {
+                                            "code": null,
+                                            "message": "Apply",
+                                            "comment": ""
+                                        }
+                                    },
+                                    "maxElements": {
+                                        "type": "JSON_LITERAL",
+                                        "value": 500
+                                    },
+                                    "filterConfigurations": {
+                                        "type": "STATE_BINDING",
+                                        "binding": {
+                                            "address": [
+                                                "parFilters"
+                                            ]
+                                        }
+                                    },
+                                    "filterProperties": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "cascadeScope": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "isDashboard": {
+                                        "type": "JSON_LITERAL",
+                                        "value": false
+                                    }
+                                },
+                                "isHidden": {
+                                    "type": "JSON_LITERAL",
+                                    "value": null
+                                },
+                                "preset": null,
+                                "slot": null,
+                                "styles": null
+                            },
+                            {
+                                "definition": {
+                                    "id": "226449101138d0dff1abe0e1566c8b2a",
+                                    "type": "MACROPONENT"
+                                },
+                                "elementLabel": "Project Phase Filter",
+                                "elementId": "filter_projectphase",
+                                "eventMappings": [
+                                    {
+                                        "eventMappingId": "cmggggzbaaavaabbzoddbiiggxoieekrbbj",
+                                        "isConfiguration": false,
+                                        "offRowStorageId": null,
+                                        "sourceEventApiName": "sn_component_filte.SN_COMPONENT_FILTER#APPLIED_ITEMS",
+                                        "sourceEventCorrelationId": null,
+                                        "sourceEventSysId": null,
+                                        "targets": [
+                                            {
+                                                "targetId": "cmggggzbaaavaabbzpddbiiggaaueehhsbbln",
+                                                "type": "EVENT",
+                                                "declarativeAction": null,
+                                                "event": {
+                                                    "sysId": "0404f68486f1baab1dc7ef2a27a3de50",
+                                                    "payload": {
+                                                        "type": "JSON_LITERAL",
+                                                        "value": {
+                                                            "loading": true,
+                                                            "label": null,
+                                                            "action": null,
+                                                            "nonBlocking": true
+                                                        }
+                                                    },
+                                                    "apiName": "sn_uxf_page.NOW_UXF_PAGE#SET_LOADING_STATE"
+                                                },
+                                                "operation": null,
+                                                "clientScript": null,
+                                                "conditional": null,
+                                                "broker": null
+                                            },
+                                            {
+                                                "targetId": "cmggggzbggwiaaccaaeeddbiiggidjggfbgt",
+                                                "type": "CLIENT_SCRIPT",
+                                                "declarativeAction": null,
+                                                "event": null,
+                                                "operation": null,
+                                                "clientScript": {
+                                                    "sysId": "6edfca7dc3075210214baa577a013170",
+                                                    "payload": {
+                                                        "type": "JSON_LITERAL",
+                                                        "value": {}
+                                                    }
+                                                },
+                                                "conditional": null,
+                                                "broker": null
+                                            }
+                                        ],
+                                        "sourceEventDefinition": {
+                                            "id": null,
+                                            "apiName": "sn_component_filte.SN_COMPONENT_FILTER#APPLIED_ITEMS",
+                                            "type": "UXEVENT"
+                                        }
+                                    }
+                                ],
+                                "propertyValues": {
+                                    "filterId": {
+                                        "type": "JSON_LITERAL",
+                                        "value": "1ii53emko08j728a7nh"
+                                    },
+                                    "filterName": {
+                                        "type": "TRANSLATION_LITERAL",
+                                        "value": {
+                                            "code": null,
+                                            "message": "Project Phase(Should be used in conjunction with other filters)",
+                                            "comment": ""
+                                        }
+                                    },
+                                    "filterComponentType": {
+                                        "type": "JSON_LITERAL",
+                                        "value": "multiselect"
+                                    },
+                                    "datasource": {
+                                        "type": "JSON_LITERAL",
+                                        "value": {
+                                            "type": "table",
+                                            "payload": {
+                                                "field": "phase",
+                                                "table": "pm_project",
+                                                "primaryKey": "sys_id"
+                                            }
+                                        }
+                                    },
+                                    "targets": {
+                                        "type": "JSON_LITERAL",
+                                        "value": [
+                                            {
+                                                "type": "table",
+                                                "payload": {
+                                                    "field": "phase",
+                                                    "table": "pm_project",
+                                                    "primaryKey": "sys_id"
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "allowedDateRanges": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "defaultSelectedItems": {
+                                        "type": "JSON_LITERAL",
+                                        "value": []
+                                    },
+                                    "cascadingConfig": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "defaultSelectedDateRange": {
+                                        "type": "JSON_LITERAL",
+                                        "value": {
+                                            "range": ""
+                                        }
+                                    },
+                                    "defaultDateStart": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "defaultDateEnd": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "allowTimeSelection": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "dateFilterView": {
+                                        "type": "JSON_LITERAL",
+                                        "value": "calendar-reldates"
+                                    },
+                                    "defaultBoolean": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "sort": {
+                                        "type": "JSON_LITERAL",
+                                        "value": "ASC"
+                                    },
+                                    "filterElementType": {
+                                        "type": "JSON_LITERAL",
+                                        "value": "pill"
+                                    },
+                                    "isShowSelectedValueInPill": {
+                                        "type": "JSON_LITERAL",
+                                        "value": true
+                                    },
+                                    "filterElementLayout": {
+                                        "type": "JSON_LITERAL",
+                                        "value": "vertical"
+                                    },
+                                    "booleanLabelTrue": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "booleanLabelFalse": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "enableResetToDefault": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "enableClearFilter": {
+                                        "type": "JSON_LITERAL",
+                                        "value": true
+                                    },
+                                    "primaryActionLabel": {
+                                        "type": "TRANSLATION_LITERAL",
+                                        "value": {
+                                            "code": null,
+                                            "message": "Apply",
+                                            "comment": ""
+                                        }
+                                    },
+                                    "maxElements": {
+                                        "type": "JSON_LITERAL",
+                                        "value": 500
+                                    },
+                                    "filterConfigurations": {
+                                        "type": "STATE_BINDING",
+                                        "binding": {
+                                            "address": [
+                                                "parFilters"
+                                            ]
+                                        }
+                                    },
+                                    "filterProperties": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "cascadeScope": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "isDashboard": {
+                                        "type": "JSON_LITERAL",
+                                        "value": false
+                                    }
+                                },
+                                "isHidden": {
+                                    "type": "JSON_LITERAL",
+                                    "value": null
+                                },
+                                "preset": null,
+                                "slot": null,
+                                "styles": null
+                            },
+                            {
+                                "definition": {
+                                    "id": "226449101138d0dff1abe0e1566c8b2a",
+                                    "type": "MACROPONENT"
+                                },
+                                "elementLabel": "Portfolio Manager Filter",
+                                "elementId": "filter_portfolio_manager",
+                                "eventMappings": [
+                                    {
+                                        "eventMappingId": "cmffubvqjjuaabbzuddbiiggwmhccxjddbb",
+                                        "isConfiguration": false,
+                                        "offRowStorageId": null,
+                                        "sourceEventApiName": "sn_component_filte.SN_COMPONENT_FILTER#APPLIED_ITEMS",
+                                        "sourceEventCorrelationId": null,
+                                        "sourceEventSysId": null,
+                                        "targets": [
+                                            {
+                                                "targetId": "cmffubvqjjuaabbzvddbiiggksujjqpuf",
+                                                "type": "CLIENT_SCRIPT",
+                                                "declarativeAction": null,
+                                                "event": null,
+                                                "operation": null,
+                                                "clientScript": {
+                                                    "sysId": "6edfca7dc3075210214baa577a013170",
+                                                    "payload": {
+                                                        "type": "JSON_LITERAL",
+                                                        "value": {}
+                                                    }
+                                                },
+                                                "conditional": null,
+                                                "broker": null
+                                            },
+                                            {
+                                                "targetId": "cmffvpddopaaccaarddbhhiccgjyaafggg",
+                                                "type": "EVENT",
+                                                "declarativeAction": null,
+                                                "event": {
+                                                    "sysId": "0404f68486f1baab1dc7ef2a27a3de50",
+                                                    "payload": {
+                                                        "type": "JSON_LITERAL",
+                                                        "value": {
+                                                            "loading": true,
+                                                            "label": "Applying filter and querying data....",
+                                                            "action": null,
+                                                            "nonBlocking": true
+                                                        }
+                                                    },
+                                                    "apiName": "sn_uxf_page.NOW_UXF_PAGE#SET_LOADING_STATE"
+                                                },
+                                                "operation": null,
+                                                "clientScript": null,
+                                                "conditional": null,
+                                                "broker": null
+                                            }
+                                        ],
+                                        "sourceEventDefinition": {
+                                            "id": null,
+                                            "apiName": "sn_component_filte.SN_COMPONENT_FILTER#APPLIED_ITEMS",
+                                            "type": "UXEVENT"
+                                        }
+                                    }
+                                ],
+                                "propertyValues": {
+                                    "filterId": {
+                                        "type": "JSON_LITERAL",
+                                        "value": "1ihegm4aeboauumanseo"
+                                    },
+                                    "filterName": {
+                                        "type": "TRANSLATION_LITERAL",
+                                        "value": {
+                                            "code": null,
+                                            "message": "Portfolio Manager",
+                                            "comment": ""
+                                        }
+                                    },
+                                    "filterComponentType": {
+                                        "type": "JSON_LITERAL",
+                                        "value": "multiselect"
+                                    },
+                                    "datasource": {
+                                        "type": "JSON_LITERAL",
+                                        "value": {
+                                            "type": "table",
+                                            "payload": {
+                                                "table": "sys_user",
+                                                "primaryKey": "sys_id"
+                                            },
+                                            "encodedQuery": "roles=it_portfolio_manager^ORu_suspended_rolesLIKE81e81d681b56ac10aea986afdc4bcbfd^ORu_suspended_rolesLIKE5ba16e291b1424506f704002dd4bcbfd"
+                                        }
+                                    },
+                                    "targets": {
+                                        "type": "JSON_LITERAL",
+                                        "value": [
+                                            {
+                                                "type": "table",
+                                                "payload": {
+                                                    "field": "portfolio_manager",
+                                                    "table": "pm_portfolio",
+                                                    "primaryKey": "sys_id"
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "allowedDateRanges": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "defaultSelectedItems": {
+                                        "type": "JSON_LITERAL",
+                                        "value": []
+                                    },
+                                    "cascadingConfig": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "defaultSelectedDateRange": {
+                                        "type": "JSON_LITERAL",
+                                        "value": {
+                                            "range": ""
+                                        }
+                                    },
+                                    "defaultDateStart": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "defaultDateEnd": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "allowTimeSelection": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "dateFilterView": {
+                                        "type": "JSON_LITERAL",
+                                        "value": "calendar-reldates"
+                                    },
+                                    "defaultBoolean": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "sort": {
+                                        "type": "JSON_LITERAL",
+                                        "value": "ASC"
+                                    },
+                                    "filterElementType": {
+                                        "type": "JSON_LITERAL",
+                                        "value": "pill"
+                                    },
+                                    "isShowSelectedValueInPill": {
+                                        "type": "JSON_LITERAL",
+                                        "value": true
+                                    },
+                                    "filterElementLayout": {
+                                        "type": "JSON_LITERAL",
+                                        "value": "vertical"
+                                    },
+                                    "booleanLabelTrue": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "booleanLabelFalse": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "enableResetToDefault": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "enableClearFilter": {
+                                        "type": "JSON_LITERAL",
+                                        "value": true
+                                    },
+                                    "primaryActionLabel": {
+                                        "type": "TRANSLATION_LITERAL",
+                                        "value": {
+                                            "code": null,
+                                            "message": "Apply",
+                                            "comment": ""
+                                        }
+                                    },
+                                    "maxElements": {
+                                        "type": "JSON_LITERAL",
+                                        "value": 500
+                                    },
+                                    "filterConfigurations": {
+                                        "type": "STATE_BINDING",
+                                        "binding": {
+                                            "address": [
+                                                "parFilters"
+                                            ]
+                                        }
+                                    },
+                                    "filterProperties": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "cascadeScope": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "isDashboard": {
+                                        "type": "JSON_LITERAL",
+                                        "value": false
+                                    }
+                                },
+                                "isHidden": {
+                                    "type": "JSON_LITERAL",
+                                    "value": true
+                                },
+                                "preset": null,
+                                "slot": null,
+                                "styles": null
+                            },
+                            {
+                                "definition": {
+                                    "id": "226449101138d0dff1abe0e1566c8b2a",
+                                    "type": "MACROPONENT"
+                                },
+                                "elementLabel": "Program Manager",
+                                "elementId": "filter_program_manager",
+                                "eventMappings": [
+                                    {
+                                        "eventMappingId": "cmffubwaahbbaabbzyddbiiggccqffffmfqi",
+                                        "isConfiguration": false,
+                                        "offRowStorageId": null,
+                                        "sourceEventApiName": "sn_component_filte.SN_COMPONENT_FILTER#APPLIED_ITEMS",
+                                        "sourceEventCorrelationId": null,
+                                        "sourceEventSysId": null,
+                                        "targets": [
+                                            {
+                                                "targetId": "cmffubwaahbbaabbzzddbiiggccnagffppd",
+                                                "type": "CLIENT_SCRIPT",
+                                                "declarativeAction": null,
+                                                "event": null,
+                                                "operation": null,
+                                                "clientScript": {
+                                                    "sysId": "6edfca7dc3075210214baa577a013170",
+                                                    "payload": {
+                                                        "type": "JSON_LITERAL",
+                                                        "value": {}
+                                                    }
+                                                },
+                                                "conditional": null,
+                                                "broker": null
+                                            },
+                                            {
+                                                "targetId": "cmffvpdoboaaccbbffddbhhizyddeepddte",
+                                                "type": "EVENT",
+                                                "declarativeAction": null,
+                                                "event": {
+                                                    "sysId": "0404f68486f1baab1dc7ef2a27a3de50",
+                                                    "payload": {
+                                                        "type": "JSON_LITERAL",
+                                                        "value": {
+                                                            "loading": true,
+                                                            "label": "Applying filter and querying data....",
+                                                            "action": null,
+                                                            "nonBlocking": true
+                                                        }
+                                                    },
+                                                    "apiName": "sn_uxf_page.NOW_UXF_PAGE#SET_LOADING_STATE"
+                                                },
+                                                "operation": null,
+                                                "clientScript": null,
+                                                "conditional": null,
+                                                "broker": null
+                                            }
+                                        ],
+                                        "sourceEventDefinition": {
+                                            "id": null,
+                                            "apiName": "sn_component_filte.SN_COMPONENT_FILTER#APPLIED_ITEMS",
+                                            "type": "UXEVENT"
+                                        }
+                                    }
+                                ],
+                                "propertyValues": {
+                                    "filterId": {
+                                        "type": "JSON_LITERAL",
+                                        "value": "1ihegool8nmapub52avg"
+                                    },
+                                    "filterName": {
+                                        "type": "TRANSLATION_LITERAL",
+                                        "value": {
+                                            "code": null,
+                                            "message": "Program Manager",
+                                            "comment": ""
+                                        }
+                                    },
+                                    "filterComponentType": {
+                                        "type": "JSON_LITERAL",
+                                        "value": "multiselect"
+                                    },
+                                    "datasource": {
+                                        "type": "JSON_LITERAL",
+                                        "value": {
+                                            "type": "table",
+                                            "payload": {
+                                                "table": "sys_user",
+                                                "primaryKey": "sys_id"
+                                            },
+                                            "encodedQuery": "roles=it_program_manager^ORu_suspended_rolesLIKE81e81d681b56ac10aea986afdc4bcbfd^ORu_suspended_rolesLIKEbfc8e5ba1bf06cd06f704002dd4bcba0^ORu_suspended_rolesLIKE5ba16e291b1424506f704002dd4bcbfd"
+                                        }
+                                    },
+                                    "targets": {
+                                        "type": "JSON_LITERAL",
+                                        "value": [
+                                            {
+                                                "type": "table",
+                                                "payload": {
+                                                    "field": "program_manager",
+                                                    "table": "pm_program",
+                                                    "primaryKey": "sys_id"
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "allowedDateRanges": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "defaultSelectedItems": {
+                                        "type": "JSON_LITERAL",
+                                        "value": []
+                                    },
+                                    "cascadingConfig": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "defaultSelectedDateRange": {
+                                        "type": "JSON_LITERAL",
+                                        "value": {
+                                            "range": ""
+                                        }
+                                    },
+                                    "defaultDateStart": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "defaultDateEnd": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "allowTimeSelection": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "dateFilterView": {
+                                        "type": "JSON_LITERAL",
+                                        "value": "calendar-reldates"
+                                    },
+                                    "defaultBoolean": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "sort": {
+                                        "type": "JSON_LITERAL",
+                                        "value": "ASC"
+                                    },
+                                    "filterElementType": {
+                                        "type": "JSON_LITERAL",
+                                        "value": "pill"
+                                    },
+                                    "isShowSelectedValueInPill": {
+                                        "type": "JSON_LITERAL",
+                                        "value": true
+                                    },
+                                    "filterElementLayout": {
+                                        "type": "JSON_LITERAL",
+                                        "value": "vertical"
+                                    },
+                                    "booleanLabelTrue": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "booleanLabelFalse": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "enableResetToDefault": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "enableClearFilter": {
+                                        "type": "JSON_LITERAL",
+                                        "value": true
+                                    },
+                                    "primaryActionLabel": {
+                                        "type": "TRANSLATION_LITERAL",
+                                        "value": {
+                                            "code": null,
+                                            "message": "Apply",
+                                            "comment": ""
+                                        }
+                                    },
+                                    "maxElements": {
+                                        "type": "JSON_LITERAL",
+                                        "value": 500
+                                    },
+                                    "filterConfigurations": {
+                                        "type": "STATE_BINDING",
+                                        "binding": {
+                                            "address": [
+                                                "parFilters"
+                                            ]
+                                        }
+                                    },
+                                    "filterProperties": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "cascadeScope": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "isDashboard": {
+                                        "type": "JSON_LITERAL",
+                                        "value": false
+                                    }
+                                },
+                                "isHidden": {
+                                    "type": "JSON_LITERAL",
+                                    "value": true
+                                },
+                                "preset": null,
+                                "slot": null,
+                                "styles": null
+                            },
+                            {
+                                "definition": {
+                                    "id": "226449101138d0dff1abe0e1566c8b2a",
+                                    "type": "MACROPONENT"
+                                },
+                                "elementLabel": "Project Manager Filter",
+                                "elementId": "filter_projectmanager",
+                                "eventMappings": [
+                                    {
+                                        "eventMappingId": "cmffubwbgglaaccaabbddbiiggzvhhaaabbx",
+                                        "isConfiguration": false,
+                                        "offRowStorageId": null,
+                                        "sourceEventApiName": "sn_component_filte.SN_COMPONENT_FILTER#APPLIED_ITEMS",
+                                        "sourceEventCorrelationId": null,
+                                        "sourceEventSysId": null,
+                                        "targets": [
+                                            {
+                                                "targetId": "cmffubwbgglaaccaaccddbiiggdojjxmccbbj",
+                                                "type": "CLIENT_SCRIPT",
+                                                "declarativeAction": null,
+                                                "event": null,
+                                                "operation": null,
+                                                "clientScript": {
+                                                    "sysId": "6edfca7dc3075210214baa577a013170",
+                                                    "payload": {
+                                                        "type": "JSON_LITERAL",
+                                                        "value": {}
+                                                    }
+                                                },
+                                                "conditional": null,
+                                                "broker": null
+                                            },
+                                            {
+                                                "targetId": "cmffvpdvgraaccbbiddbhhigkneeziieey",
+                                                "type": "EVENT",
+                                                "declarativeAction": null,
+                                                "event": {
+                                                    "sysId": "0404f68486f1baab1dc7ef2a27a3de50",
+                                                    "payload": {
+                                                        "type": "JSON_LITERAL",
+                                                        "value": {
+                                                            "loading": true,
+                                                            "label": "Applying filter and querying data....",
+                                                            "action": null,
+                                                            "nonBlocking": true
+                                                        }
+                                                    },
+                                                    "apiName": "sn_uxf_page.NOW_UXF_PAGE#SET_LOADING_STATE"
+                                                },
+                                                "operation": null,
+                                                "clientScript": null,
+                                                "conditional": null,
+                                                "broker": null
+                                            }
+                                        ],
+                                        "sourceEventDefinition": {
+                                            "id": null,
+                                            "apiName": "sn_component_filte.SN_COMPONENT_FILTER#APPLIED_ITEMS",
+                                            "type": "UXEVENT"
+                                        }
+                                    }
+                                ],
+                                "propertyValues": {
+                                    "filterId": {
+                                        "type": "JSON_LITERAL",
+                                        "value": "1ihegqgvijc8cts91jr8"
+                                    },
+                                    "filterName": {
+                                        "type": "TRANSLATION_LITERAL",
+                                        "value": {
+                                            "code": null,
+                                            "message": "Project Manager",
+                                            "comment": ""
+                                        }
+                                    },
+                                    "filterComponentType": {
+                                        "type": "JSON_LITERAL",
+                                        "value": "multiselect"
+                                    },
+                                    "datasource": {
+                                        "type": "JSON_LITERAL",
+                                        "value": {
+                                            "type": "table",
+                                            "payload": {
+                                                "table": "sys_user",
+                                                "primaryKey": "sys_id"
+                                            },
+                                            "encodedQuery": "roles=it_project_manager^ORu_suspended_rolesLIKE7f144b52dbbc689095b536be3b961971"
+                                        }
+                                    },
+                                    "targets": {
+                                        "type": "JSON_LITERAL",
+                                        "value": [
+                                            {
+                                                "type": "table",
+                                                "payload": {
+                                                    "field": "project_manager",
+                                                    "table": "pm_project",
+                                                    "primaryKey": "sys_id"
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "allowedDateRanges": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "defaultSelectedItems": {
+                                        "type": "JSON_LITERAL",
+                                        "value": []
+                                    },
+                                    "cascadingConfig": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "defaultSelectedDateRange": {
+                                        "type": "JSON_LITERAL",
+                                        "value": {
+                                            "range": ""
+                                        }
+                                    },
+                                    "defaultDateStart": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "defaultDateEnd": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "allowTimeSelection": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "dateFilterView": {
+                                        "type": "JSON_LITERAL",
+                                        "value": "calendar-reldates"
+                                    },
+                                    "defaultBoolean": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "sort": {
+                                        "type": "JSON_LITERAL",
+                                        "value": "ASC"
+                                    },
+                                    "filterElementType": {
+                                        "type": "JSON_LITERAL",
+                                        "value": "pill"
+                                    },
+                                    "isShowSelectedValueInPill": {
+                                        "type": "JSON_LITERAL",
+                                        "value": true
+                                    },
+                                    "filterElementLayout": {
+                                        "type": "JSON_LITERAL",
+                                        "value": "vertical"
+                                    },
+                                    "booleanLabelTrue": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "booleanLabelFalse": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "enableResetToDefault": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "enableClearFilter": {
+                                        "type": "JSON_LITERAL",
+                                        "value": true
+                                    },
+                                    "primaryActionLabel": {
+                                        "type": "TRANSLATION_LITERAL",
+                                        "value": {
+                                            "code": null,
+                                            "message": "Apply",
+                                            "comment": ""
+                                        }
+                                    },
+                                    "maxElements": {
+                                        "type": "JSON_LITERAL",
+                                        "value": 500
+                                    },
+                                    "filterConfigurations": {
+                                        "type": "STATE_BINDING",
+                                        "binding": {
+                                            "address": [
+                                                "parFilters"
+                                            ]
+                                        }
+                                    },
+                                    "filterProperties": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "cascadeScope": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "isDashboard": {
+                                        "type": "JSON_LITERAL",
+                                        "value": false
+                                    }
+                                },
+                                "isHidden": {
+                                    "type": "JSON_LITERAL",
+                                    "value": null
+                                },
+                                "preset": null,
+                                "slot": null,
+                                "styles": null
+                            },
+                            {
+                                "definition": {
+                                    "id": "226449101138d0dff1abe0e1566c8b2a",
+                                    "type": "MACROPONENT"
+                                },
+                                "elementLabel": "State Filter",
+                                "elementId": "filter_state",
+                                "eventMappings": [
+                                    {
+                                        "eventMappingId": "cmffubwjjjiaaccaaeeddbiiggqtockyap",
+                                        "isConfiguration": false,
+                                        "offRowStorageId": null,
+                                        "sourceEventApiName": "sn_component_filte.SN_COMPONENT_FILTER#APPLIED_ITEMS",
+                                        "sourceEventCorrelationId": null,
+                                        "sourceEventSysId": null,
+                                        "targets": [
+                                            {
+                                                "targetId": "cmffubwjjjiaaccaaffddbiiggumwvjheel",
+                                                "type": "CLIENT_SCRIPT",
+                                                "declarativeAction": null,
+                                                "event": null,
+                                                "operation": null,
+                                                "clientScript": {
+                                                    "sysId": "6edfca7dc3075210214baa577a013170",
+                                                    "payload": {
+                                                        "type": "JSON_LITERAL",
+                                                        "value": {}
+                                                    }
+                                                },
+                                                "conditional": null,
+                                                "broker": null
+                                            },
+                                            {
+                                                "targetId": "cmffvpeddkzaaccbbuddbhhiwjjyrerit",
+                                                "type": "EVENT",
+                                                "declarativeAction": null,
+                                                "event": {
+                                                    "sysId": "0404f68486f1baab1dc7ef2a27a3de50",
+                                                    "payload": {
+                                                        "type": "JSON_LITERAL",
+                                                        "value": {
+                                                            "loading": true,
+                                                            "label": "Applying filter and querying data....",
+                                                            "action": null,
+                                                            "nonBlocking": true
+                                                        }
+                                                    },
+                                                    "apiName": "sn_uxf_page.NOW_UXF_PAGE#SET_LOADING_STATE"
+                                                },
+                                                "operation": null,
+                                                "clientScript": null,
+                                                "conditional": null,
+                                                "broker": null
+                                            }
+                                        ],
+                                        "sourceEventDefinition": {
+                                            "id": null,
+                                            "apiName": "sn_component_filte.SN_COMPONENT_FILTER#APPLIED_ITEMS",
+                                            "type": "UXEVENT"
+                                        }
+                                    }
+                                ],
+                                "propertyValues": {
+                                    "filterId": {
+                                        "type": "JSON_LITERAL",
+                                        "value": "1iheh1ef63bubtj68nu8"
+                                    },
+                                    "filterName": {
+                                        "type": "TRANSLATION_LITERAL",
+                                        "value": {
+                                            "code": null,
+                                            "message": "State",
+                                            "comment": ""
+                                        }
+                                    },
+                                    "filterComponentType": {
+                                        "type": "JSON_LITERAL",
+                                        "value": "multiselect"
+                                    },
+                                    "datasource": {
+                                        "type": "JSON_LITERAL",
+                                        "value": {
+                                            "type": "table",
+                                            "payload": {
+                                                "field": "state",
+                                                "table": "pm_project_task",
+                                                "primaryKey": "sys_id"
+                                            }
+                                        }
+                                    },
+                                    "targets": {
+                                        "type": "JSON_LITERAL",
+                                        "value": [
+                                            {
+                                                "type": "table",
+                                                "payload": {
+                                                    "field": "state",
+                                                    "table": "pm_project_task",
+                                                    "primaryKey": "sys_id"
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "allowedDateRanges": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "defaultSelectedItems": {
+                                        "type": "JSON_LITERAL",
+                                        "value": []
+                                    },
+                                    "cascadingConfig": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "defaultSelectedDateRange": {
+                                        "type": "JSON_LITERAL",
+                                        "value": {
+                                            "range": ""
+                                        }
+                                    },
+                                    "defaultDateStart": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "defaultDateEnd": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "allowTimeSelection": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "dateFilterView": {
+                                        "type": "JSON_LITERAL",
+                                        "value": "calendar-reldates"
+                                    },
+                                    "defaultBoolean": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "sort": {
+                                        "type": "JSON_LITERAL",
+                                        "value": "ASC"
+                                    },
+                                    "filterElementType": {
+                                        "type": "JSON_LITERAL",
+                                        "value": "pill"
+                                    },
+                                    "isShowSelectedValueInPill": {
+                                        "type": "JSON_LITERAL",
+                                        "value": true
+                                    },
+                                    "filterElementLayout": {
+                                        "type": "JSON_LITERAL",
+                                        "value": "vertical"
+                                    },
+                                    "booleanLabelTrue": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "booleanLabelFalse": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "enableResetToDefault": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "enableClearFilter": {
+                                        "type": "JSON_LITERAL",
+                                        "value": true
+                                    },
+                                    "primaryActionLabel": {
+                                        "type": "TRANSLATION_LITERAL",
+                                        "value": {
+                                            "code": null,
+                                            "message": "Apply",
+                                            "comment": ""
+                                        }
+                                    },
+                                    "maxElements": {
+                                        "type": "JSON_LITERAL",
+                                        "value": 500
+                                    },
+                                    "filterConfigurations": {
+                                        "type": "STATE_BINDING",
+                                        "binding": {
+                                            "address": [
+                                                "parFilters"
+                                            ]
+                                        }
+                                    },
+                                    "filterProperties": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "cascadeScope": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "isDashboard": {
+                                        "type": "JSON_LITERAL",
+                                        "value": false
+                                    }
+                                },
+                                "isHidden": {
+                                    "type": "JSON_LITERAL",
+                                    "value": true
+                                },
+                                "preset": null,
+                                "slot": null,
+                                "styles": null
+                            }
                         ],
                         "layout": {
                             "default": {
@@ -71,18 +1772,54 @@
                                 "root": null,
                                 "children": null,
                                 "styles": {
-                                    "flex-direction": "column",
+                                    "flex-direction": "row",
                                     "align-items": "stretch",
-                                    "justify-content": "flex-start",
+                                    "justify-content": "space-evenly",
                                     "height": "100%",
                                     "overflow": "auto",
-                                    "box-sizing": "border-box"
+                                    "box-sizing": "border-box",
+                                    "gap": "var(--now-scalable-space--sm)"
                                 },
                                 "rules": {
                                     "flex-direction": "row"
                                 },
                                 "items": [
-                                    
+                                    {
+                                        "element_id": "filter_portfolio",
+                                        "styles": {}
+                                    },
+                                    {
+                                        "element_id": "filter_program",
+                                        "styles": {}
+                                    },
+                                    {
+                                        "element_id": "filter_project",
+                                        "styles": {}
+                                    },
+                                    {
+                                        "element_id": "filter_projectphase",
+                                        "styles": {}
+                                    },
+                                    {
+                                        "element_id": "filter_portfolio_manager",
+                                        "styles": {
+                                            "display": "none"
+                                        }
+                                    },
+                                    {
+                                        "element_id": "filter_program_manager",
+                                        "styles": {
+                                            "display": "none"
+                                        }
+                                    },
+                                    {
+                                        "element_id": "filter_projectmanager",
+                                        "styles": {}
+                                    },
+                                    {
+                                        "element_id": "filter_state",
+                                        "styles": {}
+                                    }
                                 ]
                             },
                             "version": "3.0.0"
@@ -98,12 +1835,13 @@
                                     "columnNumber": 0,
                                     "styleConfig": {
                                         "internal": {
-                                            "flex-direction": "column",
+                                            "flex-direction": "row",
                                             "align-items": "stretch",
-                                            "justify-content": "flex-start",
+                                            "justify-content": "space-evenly",
                                             "height": "100%",
                                             "overflow": "auto",
-                                            "box-sizing": "border-box"
+                                            "box-sizing": "border-box",
+                                            "gap": "var(--now-scalable-space--sm)"
                                         },
                                         "external": {
                                             "display": "contents",
@@ -135,6 +1873,11 @@
                         "width": "auto",
                         "grid-template-rows": "1fr",
                         "box-sizing": "border-box",
+                        "padding-top": "var(--now-scalable-space--md)",
+                        "padding": "var(--now-scalable-space--md)",
+                        "padding-right": "var(--now-scalable-space--md)",
+                        "padding-bottom": "var(--now-scalable-space--md)",
+                        "padding-left": "var(--now-scalable-space--md)",
                         "grid-template-columns": "100fr"
                     },
                     "type": "grid"
@@ -148,15 +1891,18 @@
                         "layout": {
                             "children": null,
                             "isInline": null,
-                            "items": [
-                                
-                            ],
+                            "items": [],
                             "root": null,
                             "rules": null,
                             "styles": {
                                 "width": "auto",
                                 "grid-template-rows": "1fr",
                                 "box-sizing": "border-box",
+                                "padding-top": "var(--now-scalable-space--md)",
+                                "padding": "var(--now-scalable-space--md)",
+                                "padding-right": "var(--now-scalable-space--md)",
+                                "padding-bottom": "var(--now-scalable-space--md)",
+                                "padding-left": "var(--now-scalable-space--md)",
                                 "grid-template-columns": "1fr",
                                 "height": "fit-content",
                                 "min-height": "min-content",
@@ -201,7 +1947,12 @@
                             "internal": {
                                 "width": "auto",
                                 "grid-template-rows": "1fr",
-                                "box-sizing": "border-box"
+                                "box-sizing": "border-box",
+                                "padding-top": "var(--now-scalable-space--md)",
+                                "padding": "var(--now-scalable-space--md)",
+                                "padding-right": "var(--now-scalable-space--md)",
+                                "padding-bottom": "var(--now-scalable-space--md)",
+                                "padding-left": "var(--now-scalable-space--md)"
                             },
                             "external": {
                                 "display": "contents",
@@ -220,9 +1971,7 @@
         },
         "elementLabel": "Column layout Gantt",
         "elementId": "column_layout_gantt",
-        "eventMappings": [
-            
-        ],
+        "eventMappings": [],
         "propertyValues": {
             "slotWrapperBehavior": {
                 "type": "JSON_LITERAL",
@@ -249,9 +1998,7 @@
                     },
                     "elementLabel": "Column 1",
                     "elementId": "__cmeeasaeelfaadduuddbiiaqcchhaaggfccz__column_1",
-                    "eventMappings": [
-                        
-                    ],
+                    "eventMappings": [],
                     "propertyValues": {
                         "slotWrapperBehavior": {
                             "type": "JSON_LITERAL",
@@ -310,16 +2057,16 @@
                                                 "broker": null
                                             },
                                             {
-                                                "targetId": "cmeejbbuhxfaacciihhddbhhvdtqbeggms",
+                                                "targetId": "cmffucciiezuaaccaauddbiiggbhhfgwzbbc",
                                                 "type": "DATABROKER_OP",
                                                 "declarativeAction": null,
                                                 "event": null,
                                                 "operation": {
-                                                    "dataBrokerId": "9b4b978353211010cbc2ddeeff7b1245",
+                                                    "dataBrokerId": "d1b949f5c3c31210214baa577a013197",
                                                     "payload": {
                                                         "type": "CLIENT_TRANSFORM_SCRIPT",
                                                         "script": {
-                                                            "inlineScript": "/**\n * @param {params} params\n * @param {api} params.api\n * @param {any} params.event\n */\nfunction evaluateEvent({\n    api,\n    event\n}) {\n    var field_map = {\n        'pm_portfolio': {\n            \"text\": \"name\"\n        },\n        'pm_program':{},\n        'pm_project':{},\n        'pm_project_task':{}\n    };\n    var edited_values = event.payload.editValues;\n    var table = event.payload.task.u_table_name.value;\n    var sys_id = event.payload.taskId;\n    var template = [];\n    for (var key in edited_values){\n        var t = field_map[table][key] + \"=\" + edited_values[key].value;\n        template.push(t);\n    }\n    console.log(template);\n    var data = {\n        table: event.payload.task.u_table_name.value,\n        recordId: sys_id,\n        templateFields: template.join('^'),\n        useSetDisplayValue: false\n    };\n    console.log(data);\n    return data;\n}",
+                                                            "inlineScript": "\n/**\n * @param {params} params\n * @param {api} params.api\n * @param {any} params.event\n */\nfunction evaluateEvent({\n    api,\n    event\n}) {\n    var field_map = event.payload.columnsConfig[0].internalColumnName;\n    var edited_values = event.payload.editValues;\n    var table = event.payload.table;\n    var sys_id = event.payload.taskId;\n      if(!field_map[table]){\n        \n      } \n    var template = [];\n    for (var key in edited_values){\n        var val = edited_values[key].value\n        if(key == 'startDate')\n            val = val + ' 08:00:00';\n        if(key == 'endDate')\n            val = val + ' 17:00:00';\n        var t = field_map[table] + \"=\" + val;\n        template.push(t);\n    }\n    var data = {\n        table: event.payload.task.u_table_name.value,\n        sys_id: sys_id,\n        templatefields: template.join('^'),\n    };\n    return data;\n}",
                                                             "apiVersion": "1.0.0",
                                                             "controllerElementId": null,
                                                             "scriptSysId": null,
@@ -327,7 +2074,7 @@
                                                         }
                                                     },
                                                     "operationName": "EXECUTE",
-                                                    "parentResourceId": "update_target_record"
+                                                    "parentResourceId": "update_project_task_chronology_data_1"
                                                 },
                                                 "clientScript": null,
                                                 "conditional": null,
@@ -337,6 +2084,290 @@
                                         "sourceEventDefinition": {
                                             "id": null,
                                             "apiName": "sn_gantt.NOW_GANTT#RECORD_UPDATED",
+                                            "type": "UXEVENT"
+                                        }
+                                    },
+                                    {
+                                        "eventMappingId": "cmffptenvaaaabbznddbiiggvrhhhhggccnk",
+                                        "isConfiguration": false,
+                                        "offRowStorageId": null,
+                                        "sourceEventApiName": "sn_gantt.NOW_GANTT#COLUMN_HIDE_REQUESTED",
+                                        "sourceEventCorrelationId": null,
+                                        "sourceEventSysId": null,
+                                        "targets": [
+                                            {
+                                                "targetId": "cmffpxccetvaaccwiddbiiggdaavfaorii",
+                                                "type": "CLIENT_SCRIPT",
+                                                "declarativeAction": null,
+                                                "event": null,
+                                                "operation": null,
+                                                "clientScript": {
+                                                    "sysId": "47e6bd78c3cb9a10214baa577a013135",
+                                                    "payload": {
+                                                        "type": "JSON_LITERAL",
+                                                        "value": {}
+                                                    }
+                                                },
+                                                "conditional": null,
+                                                "broker": null
+                                            }
+                                        ],
+                                        "sourceEventDefinition": {
+                                            "id": null,
+                                            "apiName": "sn_gantt.NOW_GANTT#COLUMN_HIDE_REQUESTED",
+                                            "type": "UXEVENT"
+                                        }
+                                    },
+                                    {
+                                        "eventMappingId": "cmffptfdrdaabbzuddbiiggvslimbffx",
+                                        "isConfiguration": false,
+                                        "offRowStorageId": null,
+                                        "sourceEventApiName": "sn_gantt.NOW_GANTT#PERSONALIZE_COLUMN_REQUESTED",
+                                        "sourceEventCorrelationId": null,
+                                        "sourceEventSysId": null,
+                                        "targets": [
+                                            {
+                                                "targetId": "cmffpxeegfvaaccwvddbiiggiihhhffjbbeebb",
+                                                "type": "CLIENT_SCRIPT",
+                                                "declarativeAction": null,
+                                                "event": null,
+                                                "operation": null,
+                                                "clientScript": {
+                                                    "sysId": "47e6bd78c3cb9a10214baa577a013135",
+                                                    "payload": {
+                                                        "type": "JSON_LITERAL",
+                                                        "value": {}
+                                                    }
+                                                },
+                                                "conditional": null,
+                                                "broker": null
+                                            }
+                                        ],
+                                        "sourceEventDefinition": {
+                                            "id": null,
+                                            "apiName": "sn_gantt.NOW_GANTT#PERSONALIZE_COLUMN_REQUESTED",
+                                            "type": "UXEVENT"
+                                        }
+                                    },
+                                    {
+                                        "eventMappingId": "cmffptfphhhaabbzwddbiiggddfnreehcf",
+                                        "isConfiguration": false,
+                                        "offRowStorageId": null,
+                                        "sourceEventApiName": "sn_gantt.NOW_GANTT#COLUMNS_CONFIG_UPDATED",
+                                        "sourceEventCorrelationId": null,
+                                        "sourceEventSysId": null,
+                                        "targets": [
+                                            {
+                                                "targetId": "cmffpxccgggghaaccwgddbiiggbfjjeedbbedd",
+                                                "type": "CLIENT_SCRIPT",
+                                                "declarativeAction": null,
+                                                "event": null,
+                                                "operation": null,
+                                                "clientScript": {
+                                                    "sysId": "47e6bd78c3cb9a10214baa577a013135",
+                                                    "payload": {
+                                                        "type": "JSON_LITERAL",
+                                                        "value": {}
+                                                    }
+                                                },
+                                                "conditional": null,
+                                                "broker": null
+                                            }
+                                        ],
+                                        "sourceEventDefinition": {
+                                            "id": null,
+                                            "apiName": "sn_gantt.NOW_GANTT#COLUMNS_CONFIG_UPDATED",
+                                            "type": "UXEVENT"
+                                        }
+                                    },
+                                    {
+                                        "eventMappingId": "cmffuffiiduffaacciiddddbiiggddkcckdrggbb",
+                                        "isConfiguration": false,
+                                        "offRowStorageId": null,
+                                        "sourceEventApiName": "sn_gantt.NOW_GANTT#TASK_RESIZED",
+                                        "sourceEventCorrelationId": null,
+                                        "sourceEventSysId": null,
+                                        "targets": [
+                                            {
+                                                "targetId": "cmffuffiiduffaacciieeddbiiggmeejjbbdccfv",
+                                                "type": "DATABROKER_OP",
+                                                "declarativeAction": null,
+                                                "event": null,
+                                                "operation": {
+                                                    "dataBrokerId": "d1b949f5c3c31210214baa577a013197",
+                                                    "payload": {
+                                                        "type": "CLIENT_TRANSFORM_SCRIPT",
+                                                        "script": {
+                                                            "inlineScript": "/**\n * @param {params} params\n * @param {api} params.api\n * @param {any} params.event\n */\nfunction evaluateEvent({\n    api,\n    event\n}) {\n    // Destructure event payload\n    const {\n        id,\n        newStartDate,\n        newEndDate,\n        direction\n    } = event.payload;\n    const {\n        gantt_data,\n        column_conf\n    } = api.data.project_task_chronology_1.output.result;\n    const modified_task = gantt_data.find(t =&gt; t.id === id);\n    if (!modified_task) return;\n    const table = modified_task.u_table_name.value;\n    const start = newStartDate.displayValue.split(' ')[0] + ' 08:00:00';\n    const end = newEndDate.displayValue.split(' ')[0] + ' 17:00:00';\n    const start_date_fieldmap = column_conf.find(c =&gt; c.name === 'startDate').internalColumnName;\n    const end_date_fieldmap = column_conf.find(c =&gt; c.name === 'endDate').internalColumnName;\n\n    let template = [];\n    if (start_date_fieldmap[table] &amp;&amp; direction == \"RESIZE_START\") template.push(start_date_fieldmap[table] + '=' + start);\n    if (end_date_fieldmap[table] &amp;&amp; direction == \"RESIZE_END\") template.push(end_date_fieldmap[table] + '=' + end);\n    return {\n        templatefields: template.join(\"^\"),\n        table: table,\n        sys_id: id\n    };\n}",
+                                                            "apiVersion": "1.0.0",
+                                                            "controllerElementId": null,
+                                                            "scriptSysId": null,
+                                                            "target": null
+                                                        }
+                                                    },
+                                                    "operationName": "EXECUTE",
+                                                    "parentResourceId": "update_project_task_chronology_data_1"
+                                                },
+                                                "clientScript": null,
+                                                "conditional": null,
+                                                "broker": null
+                                            },
+                                            {
+                                                "targetId": "cmffuffiitdyaacciigddbiiggcczccrhabgg",
+                                                "type": "EVENT",
+                                                "declarativeAction": null,
+                                                "event": {
+                                                    "sysId": "0404f68486f1baab1dc7ef2a27a3de50",
+                                                    "payload": {
+                                                        "type": "JSON_LITERAL",
+                                                        "value": {
+                                                            "loading": true,
+                                                            "label": null,
+                                                            "action": null,
+                                                            "nonBlocking": true
+                                                        }
+                                                    },
+                                                    "apiName": "sn_uxf_page.NOW_UXF_PAGE#SET_LOADING_STATE"
+                                                },
+                                                "operation": null,
+                                                "clientScript": null,
+                                                "conditional": null,
+                                                "broker": null
+                                            }
+                                        ],
+                                        "sourceEventDefinition": {
+                                            "id": null,
+                                            "apiName": "sn_gantt.NOW_GANTT#TASK_RESIZED",
+                                            "type": "UXEVENT"
+                                        }
+                                    },
+                                    {
+                                        "eventMappingId": "cmffuhhggeobbaaccaanddbiiffxffzioeeps",
+                                        "isConfiguration": false,
+                                        "offRowStorageId": null,
+                                        "sourceEventApiName": "sn_gantt.NOW_GANTT#CELL_CLICKED",
+                                        "sourceEventCorrelationId": null,
+                                        "sourceEventSysId": null,
+                                        "targets": [
+                                            {
+                                                "targetId": "cmffuhhiixoqaaccaavddbiiffaaxfwjaaij",
+                                                "type": "CLIENT_SCRIPT",
+                                                "declarativeAction": null,
+                                                "event": null,
+                                                "operation": null,
+                                                "clientScript": {
+                                                    "sysId": "262a6131c3cb1210214baa577a013177",
+                                                    "payload": {
+                                                        "type": "JSON_LITERAL",
+                                                        "value": {}
+                                                    }
+                                                },
+                                                "conditional": null,
+                                                "broker": null
+                                            }
+                                        ],
+                                        "sourceEventDefinition": {
+                                            "id": null,
+                                            "apiName": "sn_gantt.NOW_GANTT#CELL_CLICKED",
+                                            "type": "UXEVENT"
+                                        }
+                                    },
+                                    {
+                                        "eventMappingId": "cmffuicxnaaabbzlddbiiggpqiibrmjo",
+                                        "isConfiguration": false,
+                                        "offRowStorageId": null,
+                                        "sourceEventApiName": "sn_gantt.NOW_GANTT#TEXT_LINK_CLICKED",
+                                        "sourceEventCorrelationId": null,
+                                        "sourceEventSysId": null,
+                                        "targets": [
+                                            {
+                                                "targetId": "cmffuifdkqaabbznddbiiggkoliizseea",
+                                                "type": "EVENT",
+                                                "declarativeAction": null,
+                                                "event": {
+                                                    "sysId": "4059b6fd970f52107b81bb3de053affb",
+                                                    "payload": {
+                                                        "type": "CLIENT_TRANSFORM_SCRIPT",
+                                                        "script": {
+                                                            "inlineScript": "/**\n* @param {params} params\n* @param {api} params.api\n* @param {any} params.event\n*/\nfunction evaluateEvent({api, event}) {\n\tlet url_map = {\n\t\t\"pm_project\": \"now/workspace/project/home/sub/planning/pm_project/\" + event.payload.task.id + \"/\" + Date.now()+\"/params/page-name/planning\",\n\t\t\"pm_project_task\": \"now/workspace/project/home/sub/planning/pm_project/\" + event.payload.task.parent + \"/\" + Date.now()+\"/params/page-name/planning\",\n\t\t\"pm_portfolio\": \"now/nav/ui/classic/params/target/pm_portfolio.do%3Fsys_id%3D\" + event.payload.task.id,\n\t\t\"pm_program\": \"now/nav/ui/classic/params/target/pm_program.do%3Fsys_id%3D\" + event.payload.task.id\n\t};\n\treturn {\n\t\troute: null,\n\t\tfields: null,\n\t\tparams: null,\n\t\tredirect: null,\n\t\tpassiveNavigation: null,\n\t\ttitle: null,\n\t\tmultiInstField: null,\n\t\ttargetRoute: null,\n\t\tnavigationOptions: null,\n\t\texternal: {\n            url: url_map[event.payload.task.u_table_name.value]\n        }\n\t};\n}",
+                                                            "apiVersion": "1.0.0",
+                                                            "controllerElementId": null,
+                                                            "scriptSysId": null,
+                                                            "target": null
+                                                        }
+                                                    },
+                                                    "apiName": "x_main2_mars_spm_0.NAV_ITEM_SELECTED_RELAY_2db44215975a12943e147a76f053afcc"
+                                                },
+                                                "operation": null,
+                                                "clientScript": null,
+                                                "conditional": null,
+                                                "broker": null
+                                            }
+                                        ],
+                                        "sourceEventDefinition": {
+                                            "id": null,
+                                            "apiName": "sn_gantt.NOW_GANTT#TEXT_LINK_CLICKED",
+                                            "type": "UXEVENT"
+                                        }
+                                    },
+                                    {
+                                        "eventMappingId": "cmggiiddthhddxaabbzlddffiiggeetteeynecc",
+                                        "isConfiguration": false,
+                                        "offRowStorageId": null,
+                                        "sourceEventApiName": "sn_gantt.NOW_GANTT#TASK_MOVED",
+                                        "sourceEventCorrelationId": null,
+                                        "sourceEventSysId": null,
+                                        "targets": [
+                                            {
+                                                "targetId": "cmggiieeeedqmaaccaazddffiiggeyhhncpjjg",
+                                                "type": "DATABROKER_OP",
+                                                "declarativeAction": null,
+                                                "event": null,
+                                                "operation": {
+                                                    "dataBrokerId": "d1b949f5c3c31210214baa577a013197",
+                                                    "payload": {
+                                                        "type": "CLIENT_TRANSFORM_SCRIPT",
+                                                        "script": {
+                                                            "inlineScript": "/**\n * @param {params} params\n * @param {api} params.api\n * @param {any} params.event\n */\nfunction evaluateEvent({\n    api,\n    event\n}) {\n    // Destructure event payload\n    const {\n        id,\n        newStartDate,\n        newEndDate,\n        direction\n    } = event.payload;\n    const {\n        gantt_data,\n        column_conf\n    } = api.data.project_task_chronology_1.output.result;\n    const modified_task = gantt_data.find(t =&gt; t.id === id);\n    if (!modified_task) return;\n    const table = modified_task.u_table_name.value;\n    const start = newStartDate.displayValue.split(' ')[0] + ' 08:00:00';\n    const end = newEndDate.displayValue.split(' ')[0] + ' 17:00:00';\n    const start_date_fieldmap = column_conf.find(c =&gt; c.name === 'startDate').internalColumnName;\n    const end_date_fieldmap = column_conf.find(c =&gt; c.name === 'endDate').internalColumnName;\n\n    let template = [];\n    if (start_date_fieldmap[table]) template.push(start_date_fieldmap[table] + '=' + start);\n    if (end_date_fieldmap[table]) template.push(end_date_fieldmap[table] + '=' + end);\n    return {\n        templatefields: template.join(\"^\"),\n        table: table,\n        sys_id: id\n    };\n}",
+                                                            "apiVersion": "1.0.0",
+                                                            "controllerElementId": null,
+                                                            "scriptSysId": null,
+                                                            "target": null
+                                                        }
+                                                    },
+                                                    "operationName": "EXECUTE",
+                                                    "parentResourceId": "update_project_task_chronology_data_1"
+                                                },
+                                                "clientScript": null,
+                                                "conditional": null,
+                                                "broker": null
+                                            },
+                                            {
+                                                "targetId": "cmggjjhflgghhaabbzkddbiiggddlddhhtmjjg",
+                                                "type": "EVENT",
+                                                "declarativeAction": null,
+                                                "event": {
+                                                    "sysId": "0404f68486f1baab1dc7ef2a27a3de50",
+                                                    "payload": {
+                                                        "type": "JSON_LITERAL",
+                                                        "value": {
+                                                            "loading": true,
+                                                            "label": null,
+                                                            "action": null,
+                                                            "nonBlocking": true
+                                                        }
+                                                    },
+                                                    "apiName": "sn_uxf_page.NOW_UXF_PAGE#SET_LOADING_STATE"
+                                                },
+                                                "operation": null,
+                                                "clientScript": null,
+                                                "conditional": null,
+                                                "broker": null
+                                            }
+                                        ],
+                                        "sourceEventDefinition": {
+                                            "id": null,
+                                            "apiName": "sn_gantt.NOW_GANTT#TASK_MOVED",
                                             "type": "UXEVENT"
                                         }
                                     }
@@ -428,7 +2459,7 @@
                                     },
                                     "enablePreviewRecordIcon": {
                                         "type": "JSON_LITERAL",
-                                        "value": true
+                                        "value": false
                                     },
                                     "enableReorderRows": {
                                         "type": "JSON_LITERAL",
@@ -472,21 +2503,15 @@
                                     },
                                     "allowedDependencyTypes": {
                                         "type": "JSON_LITERAL",
-                                        "value": [
-                                            
-                                        ]
+                                        "value": []
                                     },
                                     "weekends": {
                                         "type": "JSON_LITERAL",
-                                        "value": [
-                                            
-                                        ]
+                                        "value": []
                                     },
                                     "taskLayers": {
                                         "type": "JSON_LITERAL",
-                                        "value": [
-                                            
-                                        ]
+                                        "value": []
                                     },
                                     "hasHierarchy": {
                                         "type": "JSON_LITERAL",
@@ -530,9 +2555,7 @@
                                     },
                                     "zoomLevelOptions": {
                                         "type": "JSON_LITERAL",
-                                        "value": [
-                                            
-                                        ]
+                                        "value": []
                                     },
                                     "layout": {
                                         "type": "JSON_LITERAL",
@@ -575,13 +2598,10 @@
                                         "value": ""
                                     },
                                     "columns": {
-                                        "type": "DATA_OUTPUT_BINDING",
+                                        "type": "STATE_BINDING",
                                         "binding": {
                                             "address": [
-                                                "project_task_chronology_1",
-                                                "output",
-                                                "result",
-                                                "column_conf"
+                                                "colmnData"
                                             ]
                                         }
                                     },
@@ -602,9 +2622,7 @@
                                     },
                                     "links": {
                                         "type": "JSON_LITERAL",
-                                        "value": [
-                                            
-                                        ]
+                                        "value": []
                                     },
                                     "baselinesInfo": {
                                         "type": "JSON_LITERAL",
@@ -612,9 +2630,7 @@
                                     },
                                     "holidays": {
                                         "type": "JSON_LITERAL",
-                                        "value": [
-                                            
-                                        ]
+                                        "value": []
                                     },
                                     "displayAddTaskBelowinTimeline": {
                                         "type": "JSON_LITERAL",
@@ -638,21 +2654,15 @@
                                     },
                                     "rowContextMenuItems": {
                                         "type": "JSON_LITERAL",
-                                        "value": [
-                                            
-                                        ]
+                                        "value": []
                                     },
                                     "cellContextMenuItems": {
                                         "type": "JSON_LITERAL",
-                                        "value": [
-                                            
-                                        ]
+                                        "value": []
                                     },
                                     "customLegendItems": {
                                         "type": "JSON_LITERAL",
-                                        "value": [
-                                            
-                                        ]
+                                        "value": []
                                     },
                                     "displayAdditionalTimelinesUnit": {
                                         "type": "JSON_LITERAL",
@@ -785,9 +2795,399 @@
                         "layout": {
                             "children": null,
                             "isInline": null,
-                            "items": [
-                                
-                            ],
+                            "items": [],
+                            "root": null,
+                            "rules": null,
+                            "styles": {
+                                "width": "auto",
+                                "grid-template-rows": "1fr",
+                                "box-sizing": "border-box",
+                                "grid-template-columns": "1fr",
+                                "height": "fit-content",
+                                "min-height": "min-content",
+                                "max-height": "max-content"
+                            },
+                            "type": "grid"
+                        }
+                    }
+                ]
+            }
+        },
+        "scratchPad": {
+            "uib": {
+                "version": "1.0.0",
+                "layout": {
+                    "type": "columnSection",
+                    "columnSection": {
+                        "id": "UIB_COLUMN_SECTION_SINGLE_COLUMN_SECTION",
+                        "breakpoints": [
+                            {
+                                "max-width": 640,
+                                "behavior": "stack",
+                                "styles": {
+                                    "width": "auto",
+                                    "grid-template-rows": "1fr",
+                                    "box-sizing": "border-box",
+                                    "grid-template-columns": "1fr",
+                                    "height": "fit-content",
+                                    "min-height": "min-content",
+                                    "max-height": "max-content"
+                                }
+                            }
+                        ],
+                        "children": [
+                            {
+                                "width": 100,
+                                "unit": "%",
+                                "columnNumber": 1
+                            }
+                        ],
+                        "styleConfig": {
+                            "internal": {
+                                "width": "auto",
+                                "grid-template-rows": "1fr",
+                                "box-sizing": "border-box"
+                            },
+                            "external": {
+                                "display": "contents",
+                                "width": "100%"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    {
+        "definition": {
+            "id": "d356d14b6e293a3020a244b63d278d8f",
+            "type": "MACROPONENT"
+        },
+        "elementLabel": "Column layout 1",
+        "elementId": "column_layout_1",
+        "eventMappings": [],
+        "propertyValues": {
+            "slotWrapperBehavior": {
+                "type": "JSON_LITERAL",
+                "value": "contents"
+            },
+            "hideEmptyStateUi": {
+                "type": "JSON_LITERAL",
+                "value": true
+            }
+        },
+        "isHidden": {
+            "type": "JSON_LITERAL",
+            "value": null
+        },
+        "preset": null,
+        "slot": null,
+        "styles": null,
+        "overrides": {
+            "composition": [
+                {
+                    "definition": {
+                        "id": "d356d14b6e293a3020a244b63d278d8f",
+                        "type": "MACROPONENT"
+                    },
+                    "elementLabel": "Column 1",
+                    "elementId": "__cmffuahjjxaaabbzjddbiiffffzyykybbaa__column_1",
+                    "eventMappings": [],
+                    "propertyValues": {
+                        "slotWrapperBehavior": {
+                            "type": "JSON_LITERAL",
+                            "value": "contents"
+                        },
+                        "hideEmptyStateUi": {
+                            "type": "JSON_LITERAL",
+                            "value": true
+                        }
+                    },
+                    "isHidden": {
+                        "type": "JSON_LITERAL",
+                        "value": null
+                    },
+                    "preset": null,
+                    "slot": null,
+                    "styles": null,
+                    "overrides": {
+                        "composition": [
+                            {
+                                "elementId": "pagination_control_1",
+                                "definition": {
+                                    "id": "63ea66b3c5a122819f729b7254789c34",
+                                    "type": "MACROPONENT"
+                                },
+                                "preset": null,
+                                "elementLabel": "Pagination control 1",
+                                "eventMappings": [
+                                    {
+                                        "eventMappingId": "cmffuiirtkccaabbzkddbiiffyaszdqbcc",
+                                        "isConfiguration": false,
+                                        "offRowStorageId": null,
+                                        "sourceEventApiName": "sn_pagination_cont.NOW_PAGINATION_CONTROL#SELECTED_PAGE_SET",
+                                        "sourceEventCorrelationId": null,
+                                        "sourceEventSysId": null,
+                                        "targets": [
+                                            {
+                                                "targetId": "cmffuiitiinjjaabbzuddbiiffuiitzcctax",
+                                                "type": "EVENT",
+                                                "declarativeAction": null,
+                                                "event": {
+                                                    "sysId": "32408b42ff7a10109046e490703bf176",
+                                                    "payload": {
+                                                        "type": "MAP_CONTAINER",
+                                                        "container": {
+                                                            "propName": {
+                                                                "type": "JSON_LITERAL",
+                                                                "value": "page"
+                                                            },
+                                                            "value": {
+                                                                "type": "EVENT_PAYLOAD_BINDING",
+                                                                "binding": {
+                                                                    "address": [
+                                                                        "value"
+                                                                    ]
+                                                                }
+                                                            }
+                                                        }
+                                                    },
+                                                    "apiName": "sn_uxf.MACROPONENT_STATE_UPDATE_REQUESTED"
+                                                },
+                                                "operation": null,
+                                                "clientScript": null,
+                                                "conditional": null,
+                                                "broker": null
+                                            },
+                                            {
+                                                "targetId": "cmffujjlcffgaabbzjddbiiffjjdggzqlqw",
+                                                "type": "EVENT",
+                                                "declarativeAction": null,
+                                                "event": {
+                                                    "sysId": "0404f68486f1baab1dc7ef2a27a3de50",
+                                                    "payload": {
+                                                        "type": "JSON_LITERAL",
+                                                        "value": {
+                                                            "loading": true,
+                                                            "label": null,
+                                                            "action": null,
+                                                            "nonBlocking": true
+                                                        }
+                                                    },
+                                                    "apiName": "sn_uxf_page.NOW_UXF_PAGE#SET_LOADING_STATE"
+                                                },
+                                                "operation": null,
+                                                "clientScript": null,
+                                                "conditional": {
+                                                    "type": "BINARY",
+                                                    "operation": {
+                                                        "operator": "NOT_EQUAL",
+                                                        "left": {
+                                                            "type": "EVENT_PAYLOAD_BINDING",
+                                                            "binding": {
+                                                                "address": [
+                                                                    "value"
+                                                                ]
+                                                            }
+                                                        },
+                                                        "right": {
+                                                            "type": "JSON_LITERAL",
+                                                            "value": 0
+                                                        }
+                                                    }
+                                                },
+                                                "broker": null
+                                            }
+                                        ],
+                                        "sourceEventDefinition": {
+                                            "id": null,
+                                            "apiName": "sn_pagination_cont.NOW_PAGINATION_CONTROL#SELECTED_PAGE_SET",
+                                            "type": "UXEVENT"
+                                        }
+                                    }
+                                ],
+                                "propertyValues": {
+                                    "total": {
+                                        "type": "DATA_OUTPUT_BINDING",
+                                        "binding": {
+                                            "address": [
+                                                "project_task_chronology_1",
+                                                "output",
+                                                "result",
+                                                "count"
+                                            ]
+                                        }
+                                    },
+                                    "pageSizes": {
+                                        "type": "JSON_LITERAL",
+                                        "value": [
+                                            "10"
+                                        ]
+                                    },
+                                    "selectedPage": {
+                                        "type": "JSON_LITERAL",
+                                        "value": "0"
+                                    },
+                                    "manageSelectedPage": {
+                                        "type": "JSON_LITERAL",
+                                        "value": false
+                                    },
+                                    "pagesOverride": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "hideRange": {
+                                        "type": "JSON_LITERAL",
+                                        "value": false
+                                    },
+                                    "rangeLabel": {
+                                        "type": "TRANSLATION_LITERAL",
+                                        "value": {
+                                            "code": null,
+                                            "message": "Showing Portfolios",
+                                            "comment": ""
+                                        }
+                                    },
+                                    "hidePageNumbers": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "visiblePages": {
+                                        "type": "JSON_LITERAL",
+                                        "value": "5"
+                                    },
+                                    "hideGoToFirst": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "hideGoToPrevious": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "hideGoToNext": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "hideGoToLast": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "selectedPageSize": {
+                                        "type": "JSON_LITERAL",
+                                        "value": "10"
+                                    },
+                                    "manageSelectedPageSize": {
+                                        "type": "JSON_LITERAL",
+                                        "value": false
+                                    },
+                                    "hidePageSizeControl": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "pageSizeLabel": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    },
+                                    "configAria": {
+                                        "type": "JSON_LITERAL",
+                                        "value": null
+                                    }
+                                },
+                                "isHidden": {
+                                    "type": "JSON_LITERAL",
+                                    "value": null
+                                },
+                                "slot": null,
+                                "styles": null
+                            }
+                        ],
+                        "layout": {
+                            "default": {
+                                "type": "flex",
+                                "root": null,
+                                "children": null,
+                                "styles": {
+                                    "flex-direction": "column",
+                                    "align-items": "stretch",
+                                    "justify-content": "flex-start",
+                                    "height": "100%",
+                                    "overflow": "auto",
+                                    "box-sizing": "border-box"
+                                },
+                                "rules": {
+                                    "flex-direction": "row"
+                                },
+                                "items": [
+                                    {
+                                        "element_id": "pagination_control_1",
+                                        "styles": {}
+                                    }
+                                ]
+                            },
+                            "version": "3.0.0"
+                        }
+                    },
+                    "scratchPad": {
+                        "uib": {
+                            "version": "1.0.0",
+                            "layout": {
+                                "type": "column",
+                                "column": {
+                                    "id": "default",
+                                    "columnNumber": 0,
+                                    "styleConfig": {
+                                        "internal": {
+                                            "flex-direction": "column",
+                                            "align-items": "stretch",
+                                            "justify-content": "flex-start",
+                                            "height": "100%",
+                                            "overflow": "auto",
+                                            "box-sizing": "border-box"
+                                        },
+                                        "external": {
+                                            "display": "contents",
+                                            "width": "100%"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            ],
+            "layout": {
+                "default": {
+                    "children": null,
+                    "isInline": null,
+                    "items": [
+                        {
+                            "element_id": "__cmffuahjjxaaabbzjddbiiffffzyykybbaa__column_1",
+                            "styles": {
+                                "display": "contents",
+                                "width": "100%"
+                            }
+                        }
+                    ],
+                    "root": null,
+                    "rules": null,
+                    "styles": {
+                        "width": "auto",
+                        "grid-template-rows": "1fr",
+                        "box-sizing": "border-box",
+                        "grid-template-columns": "100fr"
+                    },
+                    "type": "grid"
+                },
+                "version": "3.0.0",
+                "queries": [
+                    {
+                        "query": {
+                            "max-width": 640
+                        },
+                        "layout": {
+                            "children": null,
+                            "isInline": null,
+                            "items": [],
                             "root": null,
                             "rules": null,
                             "styles": {
@@ -856,19 +3256,27 @@
     {
         "elementId": "project_task_chronology_1",
         "elementLabel": "Project Task Chronology 1",
-        "readEvaluationMode": "EAGER",
+        "readEvaluationMode": "EXPLICIT",
         "definition": {
             "id": "bb378e59975a12943e147a76f053af5e",
             "type": "REST"
         },
         "inputValues": {
             "query": {
-                "type": "JSON_LITERAL",
-                "value": "abc"
+                "type": "STATE_BINDING",
+                "binding": {
+                    "address": [
+                        "filter"
+                    ]
+                }
             },
             "page_number": {
-                "type": "JSON_LITERAL",
-                "value": "1"
+                "type": "STATE_BINDING",
+                "binding": {
+                    "address": [
+                        "page"
+                    ]
+                }
             }
         },
         "eventMappings": [
@@ -892,13 +3300,29 @@
                                     "loading": false,
                                     "label": null,
                                     "action": null,
-                                    "nonBlocking": true
+                                    "nonBlocking": false
                                 }
                             },
                             "apiName": "sn_uxf_page.NOW_UXF_PAGE#SET_LOADING_STATE"
                         },
                         "operation": null,
                         "clientScript": null,
+                        "conditional": null,
+                        "broker": null
+                    },
+                    {
+                        "targetId": "cmffptueexiaaccccddddbiiggkiitwrxni",
+                        "type": "CLIENT_SCRIPT",
+                        "declarativeAction": null,
+                        "event": null,
+                        "operation": null,
+                        "clientScript": {
+                            "sysId": "47e6bd78c3cb9a10214baa577a013135",
+                            "payload": {
+                                "type": "JSON_LITERAL",
+                                "value": {}
+                            }
+                        },
                         "conditional": null,
                         "broker": null
                     }
@@ -909,37 +3333,34 @@
                     "type": "UXEVENT"
                 }
             }
-        ]
+        ],
+        "bundleLinks": []
     },
     {
-        "elementId": "update_target_record",
-        "elementLabel": "Update Target Record",
+        "elementId": "update_project_task_chronology_data_1",
+        "elementLabel": "Update Project Task Chronology Data 1",
         "readEvaluationMode": "EXPLICIT",
         "definition": {
-            "id": "9b4b978353211010cbc2ddeeff7b1245",
-            "type": "GRAPHQL"
+            "id": "d1b949f5c3c31210214baa577a013197",
+            "type": "REST"
         },
         "inputValues": {
+            "templatefields": {
+                "type": "JSON_LITERAL",
+                "value": ""
+            },
             "table": {
                 "type": "JSON_LITERAL",
                 "value": ""
             },
-            "recordId": {
+            "sys_id": {
                 "type": "JSON_LITERAL",
                 "value": ""
-            },
-            "templateFields": {
-                "type": "JSON_LITERAL",
-                "value": ""
-            },
-            "useSetDisplayValue": {
-                "type": "JSON_LITERAL",
-                "value": null
             }
         },
         "eventMappings": [
             {
-                "eventMappingId": "cmeejcckeegkaaccamddbhhvmjjeppnay",
+                "eventMappingId": "cmffuccfbbjjiaaccaaaddbiiggdmaoriqj",
                 "isConfiguration": false,
                 "offRowStorageId": null,
                 "sourceEventApiName": "sn_uxf.DATA_OP_SUCCEEDED",
@@ -947,7 +3368,30 @@
                 "sourceEventSysId": null,
                 "targets": [
                     {
-                        "targetId": "cmeejcckeeglaaccanddbhhvmakzkaate",
+                        "targetId": "cmffuddnsrsaabbzjddbiiggrccrejjeeggj",
+                        "type": "EVENT",
+                        "declarativeAction": null,
+                        "event": {
+                            "sysId": "49fe7d575f983bb3f8eea3fa8d40694c",
+                            "payload": {
+                                "type": "CLIENT_TRANSFORM_SCRIPT",
+                                "script": {
+                                    "inlineScript": "/**\n * @param {params} params\n * @param {api} params.api\n * @param {any} params.event\n */\nfunction evaluateEvent({\n    api,\n    event\n}) {\n    let msg_obj = {\n        status: 'positive',\n        content: {\n            type: \"html\",\n            value: \"&lt;span&gt;Record has been updated successfully!&lt;/span&gt;\"\n        },\n        icon: 'check-strong-fill',\n        id: 'database_update_alert',\n        action: {\n            type: \"dismiss\"\n        },\n    };\n    let {\n        status,\n        message\n    } = event.payload.data.response.result.response;\n    if (status === 'error') {\n        msg_obj.icon = 'database-error-fill';\n        msg_obj.status = 'warning';\n        msg_obj.content.value = \"&lt;span&gt;\" + message.join(\"&lt;br&gt;\") + \"&lt;/span&gt;\";\n    }\n    return {\n        items: [msg_obj]\n    };\n}",
+                                    "apiVersion": "1.0.0",
+                                    "controllerElementId": null,
+                                    "scriptSysId": null,
+                                    "target": null
+                                }
+                            },
+                            "apiName": "sn_uxf_page.NOW_UXF_PAGE#ADD_NOTIFICATIONS"
+                        },
+                        "operation": null,
+                        "clientScript": null,
+                        "conditional": null,
+                        "broker": null
+                    },
+                    {
+                        "targetId": "cmffueezddkuaaccggzddbiiggwggccccvsdu",
                         "type": "DATABROKER_OP",
                         "declarativeAction": null,
                         "event": null,
@@ -972,18 +3416,131 @@
                 }
             }
         ]
+    },
+    {
+        "elementId": "save_user_preference",
+        "elementLabel": "Save User Preference",
+        "readEvaluationMode": "EXPLICIT",
+        "definition": {
+            "id": "0b84084c536910105a20ddeeff7b124b",
+            "type": "GRAPHQL"
+        },
+        "inputValues": {
+            "name": {
+                "type": "JSON_LITERAL",
+                "value": null
+            },
+            "value": {
+                "type": "JSON_LITERAL",
+                "value": null
+            }
+        },
+        "eventMappings": []
+    },
+    {
+        "elementId": "get_user_preference",
+        "elementLabel": "Get User Preference",
+        "readEvaluationMode": "EXPLICIT",
+        "definition": {
+            "id": "4227b982eb600110aaecd1356252287f",
+            "type": "GRAPHQL"
+        },
+        "inputValues": {
+            "name": {
+                "type": "JSON_LITERAL",
+                "value": "x_main2_mars_spm_0_u_ptask_chronology"
+            }
+        },
+        "eventMappings": [
+            {
+                "eventMappingId": "cmffvpeekgglaabbzkddbiiggdfaiigjjojj",
+                "isConfiguration": false,
+                "offRowStorageId": null,
+                "sourceEventApiName": "sn_uxf.DATA_FETCH_SUCCEEDED",
+                "sourceEventCorrelationId": null,
+                "sourceEventSysId": null,
+                "targets": [
+                    {
+                        "targetId": "cmffvpeekgglaabbzlddbiiggeeeozoeewz",
+                        "type": "CLIENT_SCRIPT",
+                        "declarativeAction": null,
+                        "event": null,
+                        "operation": null,
+                        "clientScript": {
+                            "sysId": "2f88c3cec3c79610214baa577a0131ae",
+                            "payload": {
+                                "type": "JSON_LITERAL",
+                                "value": {}
+                            }
+                        },
+                        "conditional": null,
+                        "broker": null
+                    }
+                ],
+                "sourceEventDefinition": {
+                    "id": null,
+                    "apiName": "sn_uxf.DATA_FETCH_SUCCEEDED",
+                    "type": "UXEVENT"
+                }
+            }
+        ]
     }
 ]</data>
         <description/>
-        <dispatched_events/>
+        <disable_auto_reflow>false</disable_auto_reflow>
+        <dispatched_events>4059b6fd970f52107b81bb3de053affb</dispatched_events>
         <events/>
         <ext_controller_dep/>
         <extends display_value="Page Template">19be392623033300f4b4c50947bf65ba</extends>
         <extension_point/>
+        <form_factors/>
         <handled_events/>
         <interactions/>
         <interfaces/>
-        <internal_event_mappings>{}</internal_event_mappings>
+        <internal_event_mappings>{
+    "MACROPONENT_READY": [
+        {
+            "broker": null,
+            "clientScript": null,
+            "conditional": null,
+            "declarativeAction": null,
+            "event": null,
+            "operation": {
+                "dataBrokerId": "4227b982eb600110aaecd1356252287f",
+                "operationName": "REFRESH",
+                "parentResourceId": "get_user_preference",
+                "payload": {
+                    "type": "JSON_LITERAL",
+                    "value": {}
+                }
+            },
+            "targetId": "cmffvozffwhaaccbbxddbhhisggaagyvmk",
+            "type": "DATABROKER_OP"
+        },
+        {
+            "broker": null,
+            "clientScript": null,
+            "conditional": null,
+            "declarativeAction": null,
+            "event": {
+                "apiName": "sn_uxf_page.NOW_UXF_PAGE#SET_LOADING_STATE",
+                "payload": {
+                    "type": "JSON_LITERAL",
+                    "value": {
+                        "action": null,
+                        "label": "Gathering preferences and loading data.....",
+                        "loading": true,
+                        "nonBlocking": true
+                    }
+                },
+                "sysId": "0404f68486f1baab1dc7ef2a27a3de50"
+            },
+            "operation": null,
+            "targetId": "cmffxiiwbbziiaaccbbccddbiigguccjjjjsffsii",
+            "type": "EVENT"
+        }
+    ]
+}</internal_event_mappings>
         <layout>{
     "default": {
         "type": "flex",
@@ -991,7 +3548,12 @@
         "children": null,
         "rules": null,
         "styles": {
-            "flex-direction": "column"
+            "flex-direction": "column",
+            "padding": "1px",
+            "padding-top": "var(--now-scalable-space--sm)",
+            "padding-right": "1px",
+            "padding-bottom": "1px",
+            "padding-left": "1px"
         },
         "items": [
             {
@@ -1007,6 +3569,13 @@
                     "display": "contents",
                     "width": "100%"
                 }
+            },
+            {
+                "element_id": "column_layout_1",
+                "styles": {
+                    "display": "contents",
+                    "width": "100%"
+                }
             }
         ],
         "templateId": "5832fd4d53c31010e6bcddeeff7b12db"
@@ -1017,18 +3586,111 @@
         <name>Default</name>
         <output_prop_mapping/>
         <props/>
-        <required_translations>[ ]</required_translations>
+        <required_translations>[ {
+  "message" : "Apply",
+  "comment" : ""
+}, {
+  "message" : "Applying filter and querying data....",
+  "comment" : ""
+}, {
+  "message" : "Portfolio",
+  "comment" : ""
+}, {
+  "message" : "Portfolio Manager",
+  "comment" : ""
+}, {
+  "message" : "Program",
+  "comment" : ""
+}, {
+  "message" : "Program Manager",
+  "comment" : ""
+}, {
+  "message" : "Project",
+  "comment" : ""
+}, {
+  "message" : "Project Manager",
+  "comment" : ""
+}, {
+  "message" : "Project Phase(Should be used in conjunction with other filters)",
+  "comment" : ""
+}, {
+  "message" : "Showing Portfolios",
+  "comment" : ""
+}, {
+  "message" : "State",
+  "comment" : ""
+} ]</required_translations>
         <root_component/>
         <root_component_config/>
         <root_component_definition/>
         <schema_version>1.0.0</schema_version>
-        <state_properties/>
+        <state_persistence_config/>
+        <state_properties>[
+    {
+        "fieldType": "json",
+        "id": "",
+        "initialValue": {
+            "type": "JSON_LITERAL",
+            "value": []
+        },
+        "name": "colmnData",
+        "shape": "",
+        "valueType": "json"
+    },
+    {
+        "fieldType": "number",
+        "id": "",
+        "initialValue": {
+            "type": "JSON_LITERAL",
+            "value": 0
+        },
+        "name": "page",
+        "shape": "",
+        "valueType": "number"
+    },
+    {
+        "fieldType": "number",
+        "id": "",
+        "initialValue": {
+            "type": "JSON_LITERAL",
+            "value": 10
+        },
+        "name": "size",
+        "shape": "",
+        "valueType": "number"
+    },
+    {
+        "fieldType": "json",
+        "id": "",
+        "initialValue": {
+            "type": "JSON_LITERAL",
+            "value": {}
+        },
+        "name": "filter",
+        "shape": "",
+        "valueType": "json"
+    },
+    {
+        "id": "",
+        "initialValue": null,
+        "name": "userPreference",
+        "shape": "",
+        "valueType": "string"
+    },
+    {
+        "id": "",
+        "initialValue": null,
+        "name": "newClientStateParam1",
+        "shape": "",
+        "valueType": "string"
+    }
+]</state_properties>
         <sys_class_name>sys_ux_macroponent</sys_class_name>
         <sys_created_by>vallakal</sys_created_by>
         <sys_created_on>2024-12-05 03:52:20</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>2db44215975a12943e147a76f053afcc</sys_id>
-        <sys_mod_count>42</sys_mod_count>
+        <sys_mod_count>174</sys_mod_count>
         <sys_name>Default</sys_name>
         <sys_package display_value="MARS SPM Reporting" source="x_main2_mars_spm_0">e8724f28938d1e507ce7f81d6cba1022</sys_package>
         <sys_policy/>
@@ -1036,6 +3698,6 @@
         <sys_scope display_value="MARS SPM Reporting">e8724f28938d1e507ce7f81d6cba1022</sys_scope>
         <sys_update_name>sys_ux_macroponent_2db44215975a12943e147a76f053afcc</sys_update_name>
         <sys_updated_by>vallakal</sys_updated_by>
-        <sys_updated_on>2024-12-11 01:57:54</sys_updated_on>
+        <sys_updated_on>2025-01-24 15:27:26</sys_updated_on>
     </sys_ux_macroponent>
 </record_update>
