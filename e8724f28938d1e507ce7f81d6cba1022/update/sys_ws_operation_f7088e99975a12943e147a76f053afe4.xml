@@ -10,11 +10,7 @@
         <operation_script><![CDATA[(function process(request, response) {
     const ITEMS_PER_PAGE = 10;
     const portfolioIds = [];
-    var logger = ['GetProjectTaskChronology', request.body.data.page, JSON.stringify(request.body.data.query)];
-    let portfolioCount = 0;
-    let programCount = 0;
-    let projectCount = 0;
-    let projectIds = [];
+	let portfolioCount = 0;
     // Column configuration data
     const COLUMN_DATA = [{
             "label": "Name",
@@ -34,7 +30,7 @@
             }
         },
         {
-            "label": "Mangager",
+            "label": "Manager",
             "name": "owner",
             "editable": false,
             "type": "reference",
@@ -111,7 +107,7 @@
             }
         },
         {
-            "label": "Project Task State",
+            "label": "State",
             "name": "state",
             "editable": true,
             "type": "string",
@@ -208,39 +204,67 @@
         }
     ];
 
-    var TABLE_CONFIGS = {
+    const TABLE_CONFIGS = {
         pm_portfolio: {
             orderBy: 'name',
             parentField: null,
-            query: [],
+			additionalQuery:[],
             displaySuffix: '(Portfolio)',
             requiredFields: ['sys_id', 'name', 'description', 'portfolio_manager']
         },
         pm_program: {
             parentField: 'portfolio.sys_id',
-            orderBy: 'short_description',
-            query: [],
+			orderBy: 'short_description',
+			additionalQuery:[],
             displaySuffix: '(Program)',
             requiredFields: ['sys_id', 'short_description', 'description', 'start_date', 'end_date', 'state', 'program_manager', 'portfolio']
         },
         pm_project: {
             parentField: 'primary_portfolio.sys_id',
-            orderBy: 'short_description',
-            query: [],
+            orderBy: 'number',
+			additionalQuery:[],
             displaySuffix: '(Project)',
             requiredFields: ['sys_id', 'short_description', 'description', 'start_date', 'end_date', 'state', 'project_manager', 'primary_program', 'primary_portfolio']
         },
         pm_project_task: {
             parentField: 'top_portfolio.sys_id',
-            orderBy: 'number',
-            query: [],
+            orderBy: 'number', 
+			additionalQuery:[],
             displaySuffix: '(Project Task)',
-            requiredFields: ['sys_id', 'short_description', 'description', 'start_date', 'end_date', 'assigned_to', 'state', 'additional_assignee_list', 'u_release', 'u_task_region', 'u_task_phase', 'parent']
+            requiredFields: ['sys_id', 'short_description', 'description', 'start_date', 'end_date', 'assigned_to', 'state', 
+                           'additional_assignee_list', 'u_release', 'u_task_region', 'u_task_phase', 'parent']
         }
     };
 
     function formatDate(dateString) {
         return dateString ? dateString.split(' ')[0] : '';
+    }
+
+    function queryRecords(tableName, encodedQuery, firstRow, lastRow, portfolioIds) {
+        const gr = new GlideRecordSecure(tableName);
+        const config = TABLE_CONFIGS[tableName];
+        const additionalQuery = tableName === "pm_project_task" ? "stateIN"+config.additionalQuery : "sys_idIN"+config.additionalQuery;
+        if (encodedQuery) {
+            gr.addEncodedQuery(encodedQuery);
+        }
+        
+        if (config.parentField && portfolioIds.length) {
+            gr.addEncodedQuery(config.parentField + 'IN' + portfolioIds.join(','));
+        }
+        
+        if (config.orderBy) {
+            gr.orderBy(config.orderBy);
+        }
+        
+        if (config.additionalQuery.length != 0) {
+            gr.addEncodedQuery(additionalQuery);
+        }
+
+        if (tableName === 'pm_portfolio') {
+            gr.chooseWindow(firstRow, lastRow);
+        }
+        gr.query();
+        return gr;
     }
 
     function createRecordTemplate(record, tableName) {
@@ -249,8 +273,8 @@
             id: record.getValue('sys_id'),
             text: {
                 value: record.getValue(tableName === 'pm_portfolio' ? 'name' : 'short_description'),
-                displayValue: record.getDisplayValue(tableName === 'pm_portfolio' ? 'name' : 'short_description') +
-                    ' ' + config.displaySuffix
+                displayValue: record.getDisplayValue(tableName === 'pm_portfolio' ? 'name' : 'short_description') + 
+                            ' ' + config.displaySuffix
             },
             description: {
                 value: record.getValue('description'),
@@ -283,13 +307,13 @@
         }
 
         // Set parent field based on table type
-        switch (tableName) {
+        switch(tableName) {
             case 'pm_program':
                 template.parent = record.getValue('portfolio');
                 break;
             case 'pm_project':
-                template.parent = !record.primary_program.nil() ?
-                    record.getValue('primary_program') :
+                template.parent = !record.primary_program.nil() ? 
+                    record.getValue('primary_program') : 
                     record.getValue('primary_portfolio');
                 break;
             case 'pm_project_task':
@@ -314,162 +338,94 @@
 
         // Set owner field
         template.owner = {
-            value: record.getValue(tableName === 'pm_project_task' ? 'assigned_to' :
-                tableName === 'pm_project' ? 'project_manager' :
-                tableName === 'pm_program' ? 'program_manager' : 'portfolio_manager'),
-            displayValue: record.getDisplayValue(tableName === 'pm_project_task' ? 'assigned_to' :
-                tableName === 'pm_project' ? 'project_manager' :
-                tableName === 'pm_program' ? 'program_manager' : 'portfolio_manager')
+            value: record.getValue(tableName === 'pm_project_task' ? 'assigned_to' : 
+                   tableName === 'pm_project' ? 'project_manager' :
+                   tableName === 'pm_program' ? 'program_manager' : 'portfolio_manager'),
+            displayValue: record.getDisplayValue(tableName === 'pm_project_task' ? 'assigned_to' : 
+                         tableName === 'pm_project' ? 'project_manager' :
+                         tableName === 'pm_program' ? 'program_manager' : 'portfolio_manager')
         };
 
         return template;
     }
-
-    function getRelatedRecord(table, portfolio_field, query) {
-        var recs = [];
-        var gr = new GlideRecordSecure(table);
-        gr.addEncodedQuery(query);
-        gr.query();
-        while (gr.next()) {
-            if (!gr[portfolio_field].nil() && recs.indexOf(gr.getValue(portfolio_field)) == -1)
-                recs.push(gr.getValue(portfolio_field));
-        }
-        return recs;
-    }
-
-    function queryRecords(tableName, usePagination, firstRow, lastRow) {
-        const gr = new GlideRecordSecure(tableName);
-        const config = TABLE_CONFIGS[tableName];
-        if (config.query.length > 0 && !usePagination) {
-            gr.addEncodedQuery(config.query.length > 1 ? config.query.join('^') : config.query);
-        }
-        if (config.orderBy) {
-            gr.orderBy(config.orderBy);
-        }
-        if (tableName === 'pm_portfolio' && usePagination) {
-            gr.chooseWindow(firstRow, lastRow);
-        }
-        if (tableName == 'pm_project' && TABLE_CONFIGS.pm_program.query.toString().indexOf('5fde787f47ba4e5816b98e87536d432e')) {
-            gr.chooseWindow(firstRow, lastRow);
-        }
-        if (tableName == 'pm_project_task' && TABLE_CONFIGS.pm_program.query.toString().indexOf('5fde787f47ba4e5816b98e87536d432e')) {
-            gr.addEncodedQuery('top_task.sys_idIN' + projectIds.join());
-        }
-        if (config.parentField && portfolioIds.length && usePagination) {
-            gr.addEncodedQuery(config.parentField + 'IN' + portfolioIds.join(','));
-        }
-        gs.info(tableName + '::' + gr.getEncodedQuery());
-        gr.query();
-        return gr;
-    }
+	function getRelatedRecord(table,portfolio_field,query,existingRecords){
+		var gr = new GlideRecordSecure(table);
+		gr.addEncodedQuery(query);
+		gr.query();
+		while(gr.next()){
+			if(gr.getValue(portfolio_field) && existingRecords.indexOf(gr.getValue(portfolio_field)) == -1)
+				existingRecords.push(gr.getValue(portfolio_field));
+		}
+		return existingRecords;
+	}
 
     function processRecords() {
         const page = parseInt(request.body.data.page);
-        const filter_obj = Object.keys(request.body.data.query).length === 0 ? [] : request.body.data.query;
+		gs.info(request.body.data.query);
+		const filter_obj = request.body.data.query && Object.keys(request.body.data.query).length === 0 ? [] : request.body.data.query;
         const firstRow = page * ITEMS_PER_PAGE;
         const lastRow = firstRow + ITEMS_PER_PAGE;
         const results = [];
-        const usePagination = filter_obj.length == 0;
-        filter_obj.forEach(f => {
-            const {
-                label,
-                source,
-                values
-            } = f;
-            switch (label) {
-                case 'Portfolio':
-                    TABLE_CONFIGS.pm_portfolio.query.push("sys_idIN" + values);
-                    TABLE_CONFIGS.pm_program.query.push("portfolio.sys_idIN" + values);
-                    TABLE_CONFIGS.pm_project.query.push('primary_portfolio.sys_idIN' + values);
-                    TABLE_CONFIGS.pm_project_task.query.push('top_portfolio.sys_idIN' + values);
-                    break;
-                case 'Program':
-                    TABLE_CONFIGS.pm_program.query.push("sys_idIN" + values);
-                    var portfolios = getRelatedRecord('pm_program', 'portfolio', "sys_idIN" + values);
-                    TABLE_CONFIGS.pm_portfolio.query.push((portfolios.length > 0) ? "sys_idIN" +portfolios : -1);
-                    if (portfolios.length > 0) {
-                        TABLE_CONFIGS.pm_project.query.push('primary_portfolio.sys_idIN' + portfolios);
-                        TABLE_CONFIGS.pm_project_task.query.push('top_portfolio.sys_idIN' + portfolios);
-                    }
-                    TABLE_CONFIGS.pm_project.query.push('primary_program.sys_idIN' + values);
-                    TABLE_CONFIGS.pm_project_task.query.push('top_program.sys_idIN' + values);
-                    break;
-                case 'Project':
-                    TABLE_CONFIGS.pm_project.query.push("sys_idIN" + values);
-                    var portfolios = getRelatedRecord('pm_project', 'primary_portfolio', "sys_idIN" + values);
-                    TABLE_CONFIGS.pm_portfolio.query.push((portfolios.length > 0) ? "sys_idIN" +  portfolios : -1);
-                    if (portfolios.length > 0) {
-                        TABLE_CONFIGS.pm_project.query.push('primary_portfolio.sys_idIN' + portfolios);
-                        TABLE_CONFIGS.pm_project_task.query.push('top_portfolio.sys_idIN' + portfolios);
-                    }
+		const projectIds = [];
+		filter_obj.forEach(f => {
+			const {label,source,values} = f;
+			switch(label){
+				case 'Portfolio':
+					TABLE_CONFIGS.pm_portfolio.additionalQuery = values;
+					break;
+				case 'Program':
+					TABLE_CONFIGS.pm_program.additionalQuery = values;
+					TABLE_CONFIGS.pm_portfolio.additionalQuery = getRelatedRecord('pm_program','portfolio','sys_idIN'+values,TABLE_CONFIGS.pm_portfolio.additionalQuery);
+					TABLE_CONFIGS.pm_project.query = "primary_program.sys_idIN"+values;
+					break;
+				case 'Project':
+					TABLE_CONFIGS.pm_project.additionalQuery = values;
+					TABLE_CONFIGS.pm_portfolio.additionalQuery = getRelatedRecord('pm_project','primary_portfolio','sys_idIN'+values,TABLE_CONFIGS.pm_portfolio.additionalQuery);
+					TABLE_CONFIGS.pm_program.additionalQuery = getRelatedRecord('pm_project','primary_program','sys_idIN'+values,TABLE_CONFIGS.pm_program.additionalQuery);
+					break;
+				case 'Portfolio Manager':
+					TABLE_CONFIGS.pm_portfolio.additionalQuery = getRelatedRecord('pm_portfolio','sys_id','portfolio_manager.sys_idIN'+values,TABLE_CONFIGS.pm_portfolio.additionalQuery);
+					break;
+				case 'Program Manager':
+					TABLE_CONFIGS.pm_program.additionalQuery = getRelatedRecord('pm_program','sys_id','program_manager.sys_idIN'+values,TABLE_CONFIGS.pm_program.additionalQuery);
+					TABLE_CONFIGS.pm_portfolio.additionalQuery = getRelatedRecord('pm_program','portfolio','sys_idIN'+TABLE_CONFIGS.pm_program.additionalQuery,TABLE_CONFIGS.pm_portfolio.additionalQuery);
+					TABLE_CONFIGS.pm_project.query = "primary_program.sys_idIN"+TABLE_CONFIGS.pm_program.additionalQuery;
+					break;
+				case 'Project Manager':
+					TABLE_CONFIGS.pm_project.additionalQuery = getRelatedRecord('pm_project','sys_id','project_manager.sys_idIN'+values,TABLE_CONFIGS.pm_project.additionalQuery);
+					TABLE_CONFIGS.pm_portfolio.additionalQuery = getRelatedRecord('pm_project','primary_portfolio','sys_idIN'+TABLE_CONFIGS.pm_project.additionalQuery,TABLE_CONFIGS.pm_portfolio.additionalQuery);
+					TABLE_CONFIGS.pm_program.additionalQuery = getRelatedRecord('pm_project','primary_program','sys_idIN'+TABLE_CONFIGS.pm_project.additionalQuery,TABLE_CONFIGS.pm_program.additionalQuery);
+					break;
+				case 'State':
+					TABLE_CONFIGS.pm_project_task.additionalQuery = values;
+					break;
+			}
+		});
+        // Query portfolios first
+        const portfolios = queryRecords('pm_portfolio', TABLE_CONFIGS.pm_portfolio.query, firstRow, lastRow);
+		portfolioCount = portfolios.getRowCount();
+        while (portfolios.next()) {
+            const template = createRecordTemplate(portfolios, 'pm_portfolio');
+            results.push(template);
+            portfolioIds.push(template.id);
+        }
 
-                    var programs = getRelatedRecord('pm_project', 'primary_program', "sys_idIN" + values);
-                    if (programs.length > 0) {
-                        TABLE_CONFIGS.pm_program.query.push("sys_idIN" + programs);
-                        TABLE_CONFIGS.pm_project.query.push('primary_program.sys_idIN' + programs);
-                        TABLE_CONFIGS.pm_project_task.query.push('top_program.sys_idIN' + programs);
-                    }
-                    break;
-                case 'Portfolio Manager':
-                    TABLE_CONFIGS.pm_portfolio.query.push('portfolio_manager.sys_idIN' + values);
-                    TABLE_CONFIGS.pm_program.query.push("portfolio.portfolio_manager.sys_idIN" + values);
-                    TABLE_CONFIGS.pm_project.query.push('primary_portfolio.portfolio_manager.sys_idIN' + values);
-                    TABLE_CONFIGS.pm_project_task.query.push('top_portfolio.portfolio_manager.sys_idIN' + values);
-                    break;
-                case 'Program Manager':
-                    TABLE_CONFIGS.pm_program.query.push('program_manager.sys_idIN' + values);
-                    var portfolios = getRelatedRecord('pm_program', 'portfolio', "program_manager.sys_idIN" + values);
-                    TABLE_CONFIGS.pm_portfolio.query.push((portfolios.length > 0) ? "sys_idIN" + portfolios : -1);
-                    if (portfolios.length > 0) {
-                        TABLE_CONFIGS.pm_project.query.push('primary_portfolio.sys_idIN' + portfolios);
-                        TABLE_CONFIGS.pm_project_task.query.push('top_portfolio.sys_idIN' + portfolios);
-                    }
-                    TABLE_CONFIGS.pm_project.query.push('primary_program.program_manager.sys_idIN' + values);
-                    TABLE_CONFIGS.pm_project_task.query.push('top_program.program_manager.sys_idIN' + values);
-                    break;
-                case 'Project Manager':
-                    TABLE_CONFIGS.pm_project.query.push('project_manager.sys_idIN' + values);
-                    var portfolios = getRelatedRecord('pm_project', 'primary_portfolio', "project_manager.sys_idIN" + values);
-                    TABLE_CONFIGS.pm_portfolio.query.push((portfolios.length > 0) ? "sys_idIN" + portfolios : -1);
-                    if (portfolios.length > 0) {
-                        TABLE_CONFIGS.pm_project.query.push('primary_portfolio.sys_idIN' + portfolios);
-                        TABLE_CONFIGS.pm_project_task.query.push('top_portfolio.sys_idIN' + portfolios);
-                    }
-                    var programs = getRelatedRecord('pm_project', 'primary_program', "project_manager.sys_idIN" + values);
-                    TABLE_CONFIGS.pm_program.query.push(( programs.length > 0 )? "sys_idIN" + programs : -1);
-                    if (programs.length > 0) {
-                        TABLE_CONFIGS.pm_project.query.push('primary_program.sys_idIN' + programs);
-                        TABLE_CONFIGS.pm_project_task.query.push('top_program.sys_idIN' + programs);
-                    }
-
-                    break;
-                case 'State':
-                    TABLE_CONFIGS.pm_project_task.query.push("stateIN" + values);
-                    break;
+        // Query related records
+        ['pm_program', 'pm_project'].forEach(tableName => {
+            if (portfolioIds.length) {
+                const records = queryRecords(tableName, TABLE_CONFIGS[tableName].query, null, null, portfolioIds);
+                while (records.next()) {
+                    results.push(createRecordTemplate(records, tableName));
+					if(tableName === "pm_project")
+						projectIds.push(records.getValue('sys_id'));
+                }
             }
         });
-        var tables = ['pm_portfolio', 'pm_program', 'pm_project', 'pm_project_task']
-        for (var i = 0; i < tables.length; i++) {
-            //['pm_portfolio','pm_program'].forEach(f => {
-            var f = tables[i];
-            let gr = queryRecords(f, usePagination, firstRow, lastRow);
-            if (f == 'pm_portfolio')
-                portfolioCount = gr.getRowCount();
-            if (f == 'pm_project' && TABLE_CONFIGS.pm_program.query.toString().indexOf('5fde787f47ba4e5816b98e87536d432e')) {
-                portfolioCount = gr.getRowCount();
-            }
 
-            while (gr.next()) {
-                if (f == 'pm_portfolio') {
-                    portfolioIds.push(gr.getValue('sys_id'));
-                }
-                if (f == 'pm_project' && TABLE_CONFIGS.pm_program.query.toString().indexOf('5fde787f47ba4e5816b98e87536d432e')) {
-                    projectIds.push(gr.getValue('sys_id'));
-                }
-
-                results.push(createRecordTemplate(gr, f));
-            }
-        }
+		const prjTask = queryRecords('pm_project_task','top_taskIN'+projectIds, null, null,[]);
+		while(prjTask.next()){
+			results.push(createRecordTemplate(prjTask, 'pm_project_task'));
+		}
 
         return results;
     }
@@ -480,11 +436,9 @@
         response.setBody({
             gantt_data: ganttData,
             column_conf: COLUMN_DATA,
-            count: portfolioCount,
-            table_conf: TABLE_CONFIGS
+			count: portfolioCount
         });
-        logger.push(JSON.stringify(TABLE_CONFIGS));
-        gs.info(logger.join());
+        gs.info(['GetProjectTaskChronology', request.body.data.page, JSON.stringify(request.body.data.query)].join());
     } catch (error) {
         gs.error('Error in GetProjectTaskChronology: ' + error);
         response.setStatus(500);
@@ -505,7 +459,7 @@
         <sys_created_on>2024-12-05 04:07:22</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>f7088e99975a12943e147a76f053afe4</sys_id>
-        <sys_mod_count>136</sys_mod_count>
+        <sys_mod_count>96</sys_mod_count>
         <sys_name>getProjectTaskChronology</sys_name>
         <sys_package display_value="MARS SPM Reporting" source="x_main2_mars_spm_0">e8724f28938d1e507ce7f81d6cba1022</sys_package>
         <sys_policy/>
@@ -513,7 +467,7 @@
         <sys_scope display_value="MARS SPM Reporting">e8724f28938d1e507ce7f81d6cba1022</sys_scope>
         <sys_update_name>sys_ws_operation_f7088e99975a12943e147a76f053afe4</sys_update_name>
         <sys_updated_by>vallakal</sys_updated_by>
-        <sys_updated_on>2025-01-15 18:49:43</sys_updated_on>
+        <sys_updated_on>2025-01-14 23:18:21</sys_updated_on>
         <web_service_definition display_value="SPM Reporting">1424076c938d1e507ce7f81d6cba1094</web_service_definition>
         <web_service_version/>
     </sys_ws_operation>
